@@ -9,6 +9,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{amsmath,amsthm,bm}
 \RequirePackage{amssymb,latexsym,textcomp,euscript,euscript,yhmath}
+\RequirePackage{derivative,fixdif}
 %
 % 物理专用宏包
 \RequirePackage{siunitx}
@@ -17,21 +18,47 @@
 % 图形和布局
 \RequirePackage{graphicx,float,caption,subcaption}
 \RequirePackage{tikz}
-\RequirePackage[inner=1in,outer=1.5in,vmargin=1in,marginparwidth=1in]{geometry}
+\usetikzlibrary{arrows.meta,angles,quotes,calc}
+\RequirePackage[inner=0.8in,outer=1in,vmargin=0.8in,marginparwidth=0.8in]{geometry}
 \RequirePackage{multicol}
+% 
+% 中文支持
+\RequirePackage[UTF8,scheme=chinese, heading=true]{ctex}
+%
+% 页眉页脚设定 (奇偶页显示章节和页码)
+\addtolength{\headheight}{1.6pt}
+\newdimen\headwidth \headwidth\textwidth
+\newdimen\headrulewidth \headrulewidth=0.4pt
+\def\ps@fancy{%
+  \let\@oddfoot\@empty\let\@evenfoot\@empty
+  \def\@evenhead{\vbox to \headheight{%
+    \hb@xt@\headwidth{\bfseries\thepage\hfil\leftmark}%
+    \vss\hrule\@height\headrulewidth}}%
+  \def\@oddhead{\vbox to \headheight{%
+    \hb@xt@\headwidth{\bfseries\rightmark\hfil\thepage}%
+    \vss\hrule\@height\headrulewidth}}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{\if@mainmatter\CTEXthechapter\fi\quad ##1}{}}%
+  \def\sectionmark##1{\markright{\S\thesection\quad ##1}}%
+}
+% 应用页眉样式
+\pagestyle{fancy}
+%
 %
 % tcolorbox 及其库
 \RequirePackage{tcolorbox}
 \tcbuselibrary{skins,breakable,theorems}
-%
-% 中文支持
-\RequirePackage[UTF8,scheme=chinese, heading=true]{ctex}
 %
 % 索引工具
 \RequirePackage{makeidx}
 %
 % 字体问题处理
 % 等待处理
+%
+% 图、表、公式编号
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+\numberwithin{equation}{chapter}
 %
 % ==========================================
 % 物理笔记专用环境定义
@@ -48,8 +75,8 @@
     attach boxed title to top left={xshift=5mm, yshift=-2mm},
     boxed title style={colback=blue!75!black},
 }{def}
-
-% 2. 定理/定律环境
+%
+% 2. 定律环境
 \newtcbtheorem[number within=section]{law}{定律}
 {
     colback=green!5!white,
@@ -61,7 +88,68 @@
     boxed title style={colback=green!75!black},
 }{law}
 %
+% 3. 定理环境
+\newtcbtheorem[number within=section]{theorem}{定理}
+{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    breakable,
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},
+    boxed title style={colback=orange!75!black},
+}{theorem}
+%
+% 4. 注释环境
+\newtcbtheorem[number within=section]{note}{注}
+{
+    colback=yellow!5!white,
+    colframe=yellow!75!black,
+    fonttitle=\bfseries,
+    breakable,
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},
+    boxed title style={colback=yellow!75!black},
+}{note}
+%
+% 5. 例题环境
+\newtcbtheorem[number within=section]{example}{例}
+{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    breakable,
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},
+    boxed title style={colback=red!75!black},
+}{example}
+%
+% 6. 示例环境
+\newtcbtheorem[number within=section]{illustration}{示}
+{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    fonttitle=\bfseries,
+    breakable,
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},
+    boxed title style={colback=purple!75!black},
+}{illustration}
+%
+% 7.定理证明环境
+\newtcbtheorem[number within=section]{proofthm}{证明}
+{
+    colback=gray!5!white,
+    colframe=gray!75!black,
+    fonttitle=\bfseries,
+    breakable,
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},
+    boxed title style={colback=gray!75!black},
+}{proofthm}
+%
 %==========================================
+%
 % 超链接支持
 \RequirePackage{hyperref}
 \hypersetup{
@@ -72,12 +160,12 @@
     bookmarksnumbered=true,
     pdfstartview=FitH
 }
-%==========================================
+%
 % 令 \cleardoublepage 的偶数页页眉页脚为空
 \renewcommand{\cleardoublepage}
     {\clearpage\if@twoside \ifodd\c@page\else
     \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-%==========================================
+%
 % 目录排版
 \renewcommand\tableofcontents%
   {\chapter{\contentsname}%
@@ -86,10 +174,11 @@
     \@starttoc{toc}%
   \end{multicols}
 }
-%==========================================
-% 每章最前的介绍内容环境 intro（优化版）
+%
+% 每章最前的介绍内容环境 intro
 \newenvironment{intro}
   {\begin{quote}\kaishu\color{gray}}%
   {\end{quote}\par\vspace*{2ex minus 1.5ex}}
 
 \endinput
+%

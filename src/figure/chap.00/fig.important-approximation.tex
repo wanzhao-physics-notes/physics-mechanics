@@ -1,0 +1,43 @@
+% 重要近似的证明示意图
+\centering
+\captionsetup{hypcap=false}
+\begin{tikzpicture}[scale=1, >=latex] 
+    \def\R{2.5}           
+    \def\Angle{50}        
+    
+    \coordinate (O) at (0,0);
+    \coordinate (B) at (\R,0);
+    \coordinate (A) at (\Angle:\R);
+    
+    \coordinate (Aprime) at (A |- O);
+    \coordinate (Bprime) at (\R, {\R*tan(\Angle)});
+    
+    \draw[->, thick] (-0.5,0) -- (4.0,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.5) -- (0,3.5) node[above] {$y$};
+    
+    \draw[thick, blue!50!black] (\R,0) arc (0:100:\R);
+
+
+    \draw[thick] (A) -- (Aprime);
+
+    \draw[thick] (B) -- (Bprime);
+
+
+    \draw[thick] (O) -- (B);
+
+    \draw[thick] (O) -- (Bprime);
+
+    \fill (O) circle (1.2pt) node[below left] {$O$};
+    \fill (A) circle (1.2pt) node[above=2pt] {$A$};
+    \fill (B) circle (1.2pt) node[below] {$B$};
+    \fill (Aprime) circle (1.2pt) node[below] {$A'$};
+    \fill (Bprime) circle (1.2pt) node[right] {$B'$};
+
+    \pic [draw, ->, "$\theta$", angle radius=0.8cm, angle eccentricity=1.2] {angle = B--O--A};
+
+    \node at ($(O)!0.5!(A)$) [above left] {$R$};
+    
+\end{tikzpicture}
+\captionof{figure}{重要近似的几何示意图}
+\label{fig:important-approximation}
+\raggedright

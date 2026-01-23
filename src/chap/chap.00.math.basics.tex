@@ -8,7 +8,7 @@
 
 第一类是需要完全理解和掌握的，比如数列、导数和积分、微分方程……它们在题目中出现的概率很高，当我们遇到时要能从容应对。
 
-第二类是有助于物理理解，但不要求完全掌握的，比如矢量分析与场论、张量代数……他们有助于加深你对物理情景的理解，但在普通物理的题目中出现的概率较低，这种知识需要学习，但学习的深度要视自身情况而定。
+第二类是有助于物理理解，但不要求完全掌握的，比如矢量分析与场论、张量代数……它们有助于加深你对物理情景的理解，但在普通物理的题目中出现的概率较低，这种知识需要学习，但学习的深度要视自身情况而定。
 \end{intro}
 
 \section{一元函数微积分}\label{sec:single-variable-calculus}
@@ -20,12 +20,36 @@
     y = y(x)\ \text{或}\ y = f(x),
 \end{equation}
 
-在它的连续区域内，如图
+在它的连续区间内，如图 \ref{fig:function-increment}
 
-\begin{tikzpicture}
-    \draw[->] (-0.5,0) -- (4,0) node[right] {$x$};
-    \draw[->] (0,-0.5) -- (0,4) node[above] {$y$};
-    
-    \node[below left] at (0,0) {$O$};
-\end{tikzpicture}
+\input{figure/chap.00/fig.function-increment.tex}
+
+所示，自变量由 $x$ 变到 $x + \Delta x$，相应的，$y$ 由 $y(x)$ 变到 $y(x + \Delta x)$，则函数的增量定义为
+\begin{equation}
+    \Delta y = y(x + \Delta x) - y(x).
+\end{equation}
+
+自变量 $ \Delta x \to 0$ 时，称为自变量微分，记为 $ \d x$，$ \d x$ 是无穷小量，不是零。
+但因为它是无穷小量，它在与有限量的运算中，在一些情况下可以视为 0 （但不是在所有情况下都可以视为 0）。
+在连续区间内，自变量增量 $\Delta x$ 趋近于微分 $\d x$，函数增量 $\Delta y \to \d y$，称为函数微分，记为 $\d y$，它也是无穷小量。
+$ \d y $ 与 $ \d x $ 之间的关系为
+\begin{equation}
+    \d y = y (x + \d x) - y (x).
+\end{equation}
+
+\begin{note}{符号说明}{note:symbol-explanation}
+    显然，因为 $ y(x) $ 不一定是单调函数，所以 $ \Delta y $ 和 $ \d y $ 可以是正的、负的或零。
+\end{note}
+
+\begin{example}{重要近似}{example:important-approximation}
+    \begin{equation}
+        \sin x = \tan x = x, (x \to 0).
+    \end{equation}
+    \input{figure/chap.00/fig.important-approximation.tex}
+    以 $ O $ 为原点建立直角坐标系，绘出以 $ R $ 为半径的圆弧如图 \ref{fig:important-approximation} 所示，
+    其中圆心角 $ \theta $ 对应的直线段 $ AA' $ ,$ BB' $ ,圆弧 $ \wideparen{AB} $ 的长度分别为
+\end{example}
+
+
+
 
