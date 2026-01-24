@@ -5,11 +5,13 @@
 % physics-notes-style 调用的宏包
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% 基础宏包
+% 基础宏包（数学）
 \RequirePackage{xcolor}
 \RequirePackage{amsmath,amsthm,bm}
 \RequirePackage{amssymb,latexsym,textcomp,euscript,euscript,yhmath}
 \RequirePackage{derivative,fixdif}
+\RequirePackage{mathtools}
+\RequirePackage{polynom}
 %
 % 物理专用宏包
 \RequirePackage{siunitx}
@@ -23,13 +25,15 @@
   inner=2cm,
   outer=1.5cm,
   top=2cm,
-  bottom=2cm,
+  bottom=1cm,
   marginparwidth=2cm,
   marginparsep=0.4cm,
-  %includefoot,
+  includefoot,
   heightrounded
   ]{geometry}
 \RequirePackage{multicol}
+\RequirePackage{microtype}
+\RequirePackage{tabularray}
 % 
 % 中文支持
 \RequirePackage[UTF8,scheme=chinese, heading=true]{ctex}
@@ -209,6 +213,12 @@
 \newenvironment{intro}
   {\begin{quote}\kaishu\color{gray}}%
   {\end{quote}\par\vspace*{2ex minus 1.5ex}}
-
+%
+% 取消过多的 underfull/overfull 警告
+%\hfuzz=10000pt
+%\vfuzz=10000pt
+%\hbadness=10000
+%\vbadness=10000
+%
 \endinput
 %
