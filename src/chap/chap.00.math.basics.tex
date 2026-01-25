@@ -359,7 +359,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     这种表达式其实是对微分形式的曲线段长度公式的非严格表达，但也是形式计算奏效的一个例子。
 \end{note}
     
-\subsection{常微分方程}\label{sec:ordinary-differential-equations}
+\subsection{常微分方程}\label{subsec:ordinary-differential-equation}
 
 \begin{definition}{常微分方程}{ordinary-differential-equation}
     设未知函数 $ y = y(x) $ 及其各阶导数 $ y', y'', \ldots , y^{(n)} $ 之间存在某种关系，可表示为
@@ -1189,7 +1189,178 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         y_p = \Re (\tilde{y}) = \frac{x}{3} \cos x + \frac{2}{9} \sin x .
     \end{equation*}
     $\hfill \blacksquare $
+    \bigskip
+
+    如下为升幂长除法的计算示例：
+    {
+        \newcommand{\longdiv}{
+            \smash{\mkern-0.43mu\vstretch{1.34}
+            {\hstretch{0.9}{)}}\mkern-5.95mu\vstretch{1.34}{\hstretch{0.85}{)}}}
+        }
+    
+        \begin{equation*}
+            \begin{tblr}{%
+                hline{2}={3-10}{black,0.4pt,solid},
+                hline{4}={3-8}{black,0.4pt,solid},
+                hline{6}={4-10}{black,0.4pt,solid},
+                rows = {rowsep = 2pt},
+                row{1} = {belowsep = 3pt},
+                row{2} = {abovesep = 4pt},
+                columns = {colsep = 1pt},
+            }
+                &  &  &  &  &  &  & \dfrac{1}{3} & - & \dfrac{2}{9}iD &  &  &  & \\
+                3 + 2iD + D^2 & \longdiv &  & 1 &  &  &  &  &  &  &  &  &  &  & \\
+                &  & - & 1 & - & \dfrac{2}{3} iD & - & \dfrac{1}{3} D^2 &  &  &  &  &  & \\
+                &  &  &  & - & \dfrac{2}{3} iD & - & \dfrac{1}{3} D^2 &  &  &  &  &  & \\
+                &  &  &  &  & \dfrac{2}{3} iD & - & \dfrac{4}{9} D^2 & + & \dfrac{2}{9} iD^3 &  &  & \\
+                &  &  &  &  &  & - & \dfrac{7}{9} D^2 & + & \dfrac{2}{9} iD^3 &  &  & \\
+            \end{tblr}
+        \end{equation*}
+    }
 \end{example}
+
+\section{多元函数微积分}\label{sec:multivariable-calculus}
+
+多元函数微积分是对单变量微积分的推广，研究多个自变量的函数的微分与积分性质。
+但此处只能做简单介绍，一来篇幅有限，二来在普物力学中，多元函数微积分的应用并不多见，更多的是在电动力学与量子力学中才会频繁使用。
+更详细的介绍可以参考有关数学教材或者笔者后续的电磁学笔记。
+
+\subsection{偏微商（偏导数）}\label{subsec:partial-derivative}
+
+多元函数是由多个独立自变量构成的函数。
+将 $ k $ 个自变量记为 $ x_i $（$ i = 1, 2, \ldots , k $），则多元函数可表示为：
+\begin{equation}
+    y = y(x_1 , x_2 , \ldots , x_k) .
+\end{equation}
+仅由自变量 $ x_1 $ 的无穷小变化引起的函数增量
+\begin{equation*}
+    y(x_1 + \d x_1 , x_2 , \ldots , x_k) - y(x_1 , x_2 , \ldots , x_k)
+\end{equation*}
+称为函数对 $ x_1 $ 的偏微分，将
+\begin{equation}
+    y'_{x_1} = \lim_{\d x_1 \to 0} \frac{y(x_1 + \d x_1 , x_2 , \ldots , x_k) - y(x_1 , x_2 , \ldots , x_k)}{\d x_1}
+\end{equation}
+称为函数对 $ x_1 $ 的偏微商或偏导数。为了在形式上与一元函数导数 $ \frac{\d y}{\d x} $ 区分开来，偏导数通常记为
+\begin{equation}
+    y'_{x_1} = \frac{\partial y}{\partial x_1} .
+\end{equation}
+类似地，可定义函数对其他自变量的偏导数：
+\begin{definition}{偏导数的定义}{definition-of-partial-derivative}
+    设 $ y = y(x_1 , x_2 , \ldots , x_k) $，则函数对自变量 $ x_i $ 的偏导数定义为
+    \begin{equation}
+        \frac{\partial y}{\partial x_i} = \lim_{\d x_i \to 0} \frac{y(x_1 , \ldots , x_i + \d x_i , \ldots , x_k) - y(x_1 , x_2 , \ldots , x_k)}{\d x_i} (i = 1, 2, \ldots , k) .
+    \end{equation}
+\end{definition}
+
+类似的，我们可以定义高阶偏导数：
+\begin{definition}{高阶偏导数的定义}{definition-of-higher-order-partial-derivative}
+    设 $ y = y(x_1 , x_2 , \ldots , x_k) $，则函数对自变量 $ x_i $ 的 $ n $ 阶偏导数定义为
+    \begin{equation}
+        \frac{\partial^n y}{\partial x_i^n} = \frac{\partial}{\partial x_i} \left( \frac{\partial^{n-1} y}{\partial x_i^{n-1}} \right) (i = 1, 2, \ldots , k; n = 2, 3, \ldots ) .
+    \end{equation}
+    设 $ i , j \in \{ 1, 2, \ldots , k \} $ 且 $ i \neq j $，则函数对自变量 $ x_i $ 与 $ x_j $ 的混合偏导数定义为
+    \begin{equation}
+        \frac{\partial^2 y}{\partial x_i \partial x_j} = \frac{\partial}{\partial x_i} \left( \frac{\partial y}{\partial x_j} \right) .
+    \end{equation}
+\end{definition}
+
+\begin{note}{关于偏导数的说明}{note-on-partial-derivative}
+    偏导数的计算与一元函数的导数计算类似，只是在计算时将其他自变量视为常数。
+
+    而对于混合偏导数，我们有一个常用的性质：
+    若 $ y = y(x_1 , x_2 , \ldots , x_k) $ 在点 $ (x_1^0 , x_2^0 , \ldots , x_k^0) $ 的某邻域内具有连续的二阶偏导数，则在该点处有
+    \begin{equation*}
+        \frac{\partial^2 y}{\partial x_i \partial x_j} = \frac{\partial^2 y}{\partial x_j \partial x_i} \quad (i , j = 1, 2, \ldots , k; i \neq j) .
+    \end{equation*}
+    即交换偏导顺序，结果不变，该性质称为混合偏导数的对称性。
+\end{note}
+
+在此基础上，我们可以定义多元函数的全微分：
+\begin{definition}{全微分的定义}{definition-of-total-differential}
+    设 $ y = y(x_1 , x_2 , \ldots , x_k) $，则函数 $ y $ 的全微分定义为
+    \begin{equation}
+        \d y = \frac{\partial y}{\partial x_1} \d x_1 + \frac{\partial y}{\partial x_2} \d x_2 + \ldots + \frac{\partial y}{\partial x_k} \d x_k .
+    \end{equation}
+\end{definition}
+全微分表示函数在各个自变量发生微小变化时的总变化量。
+
+\subsection{重积分}\label{subsec:multiple-integral}
+
+重积分是对多元函数在某个区域上的积分运算，是一元积分的推广。
+设 $ f(x_1 , x_2 , \ldots , x_k) $ 为定义在区域 $ D \subseteq \mathbb{R}^k $ 上的多元函数，则其在区域 $ D $ 上的重积分定义为
+\begin{definition}{重积分的定义}{definition-of-multiple-integral}
+    \begin{equation}
+        \int \ldots \int_D f(x_1 , x_2 , \ldots , x_k) \d x_1 \d x_2 \ldots \d x_k = \lim_{\max \Delta V_i \to 0} \sum_{i} f(\xi_i) \Delta V_i ,
+    \end{equation}
+    其中，区域 $ D $ 被划分为若干小体积 $ \Delta V_i $，$ \xi_i $ 为 $ \Delta V_i $ 内的某点，$ \max \Delta V_i $ 表示所有小体积的最大值。
+\end{definition}
+
+\begin{note}{关于重积分的说明}{note-on-multiple-integral}
+    这里的“体积”并非我们通常所说的三维空间中的体积，而是 $ k $ 维空间中的“超体积”。
+    同时上述定义实际上非常模糊且并不严谨，关于 $ \Delta V_i $ 的划分方式，极限的存在性等问题都需要更为严谨的数学语言来描述，限于篇幅，此处便不做展开了。
+
+    \bigskip
+
+    重积分的计算通常可以通过迭代积分来实现，即将多重积分转化为一系列一元积分。
+    例如，对于二重积分，有：
+    \begin{equation*}
+        \iint_D f(x, y) \d x \d y = \int_{y_1}^{y_2} \left( \int_{x_1(y)}^{x_2(y)} f(x, y) \d x \right) \d y ,
+    \end{equation*}
+    其中，$ y_1 $ 与 $ y_2 $ 为区域 $ D $ 在 $ y $ 方向的边界，$ x_1(y) $ 与 $ x_2(y) $ 为区域 $ D $ 在 $ x $ 方向的边界。
+    具体的操作及一些技巧可以参考相关数学教材。
+\end{note}
+
+\subsection{线积分、面积分与体积分}\label{subsec:line-surface-and-volume-integrals}
+
+物理学中有些标量是空间位置 $ \bm{r} $ 的函数，例如非均匀物质场中的密度分布 $ \rho (\bm{r}) $，电势分布 $ V (\bm{r}) $ 等。
+这类标量与位置之间的函数可一般地记作
+\begin{equation}
+    \phi (\bm{r}) \text{ 或 } \phi (x, y, z) .
+\end{equation}
+它是一个由空间中的三个独立坐标 $ x , y , z $ 决定的三元函数。
+
+类似地，物理学中有些矢量是空间位置 $ \bm{r} $ 的函数，例如速度场 $ \bm{v} (\bm{r}) $，电场强度分布 $ \bm{E} (\bm{r}) $ 等。
+这类矢量与位置之间的函数可一般地记作
+\begin{equation}
+    \bm{A} (\bm{r}) \text{ 或 } \bm{A} (x, y, z) .
+\end{equation}
+他可分解成
+\begin{equation}
+    \bm{A} (\bm{r}) = A_x (\bm{r}) \bm{e}_x + A_y (\bm{r}) \bm{e}_y + A_z (\bm{r}) \bm{e}_z ,
+\end{equation}
+其中，$ A_x (\bm{r}) $，$ A_y (\bm{r}) $，$ A_z (\bm{r}) $ 均为标量性三元函数。
+
+\begin{note}{关于单位矢量表示法的说明}{note-on-unit-vector-notation}
+    关于 $ Oxyz $ 中单位矢量的表达，有一部分教材使用的是 $ \bm{i} , \bm{j} , \bm{k} $，
+    但是笔者偏爱使用 $ \bm{e}_x , \bm{e}_y , \bm{e}_z $，特在此说明。
+\end{note}
+
+\input{figure/chap.00/fig.curve-element.tex}
+
+将图 \ref{fig:curve-element} 中 $ a $ 到 $ b $ 的曲线段 $ L $ 上的任意一段曲线元记为 $ \d l $ ，并忽略曲线元上各点的位置变化，
+则曲线元上各点的函数值可视为常数，记为 $ \phi (\bm{r}) $ 或 $ \phi (x, y, z) $。
+将该位置处的函数值与曲线元长度的乘积 $ \phi (x, y, z) \d l $，从曲线段 $ L $ 的起点 $ a $ 积分到终点 $ b $，即得到沿曲线段 $ L $ 的线积分：
+\begin{definition}{线积分的定义}{definition-of-line-integral}
+    \begin{equation}
+        \int_L \phi (x, y, z) \d l = \lim_{\max \Delta l_i \to 0} \sum_{i} \phi (\xi_i) \Delta l_i ,
+    \end{equation}
+    其中，曲线段 $ L $ 被划分为若干小曲线元 $ \Delta l_i $，$ \xi_i $ 为 $ \Delta l_i $ 上的某点，$ \max \Delta l_i $ 表示所有小曲线元的最大值。
+\end{definition}
+若取 $ \phi (x, y, z) = 1 $，则线积分即为曲线段 $ L $ 的长度。
+如果 $ L $ 为闭合曲线，则称该线积分为闭合线积分，记为
+\begin{equation}
+    \oint_L \phi (x, y, z) \d l .
+\end{equation}
+
+\bigskip
+
+
+
+
+
+
+
+
 
 
 
