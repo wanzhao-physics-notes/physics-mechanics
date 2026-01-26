@@ -1,0 +1,36 @@
+% 线积分示意图
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[>=latex, scale=0.9]
+    % 定义两端点
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (6,1.5);
+
+    % 绘制光滑曲线 L，连接 A 和 B
+    % 选取中间点 M 用于绘制 dl
+    \draw[thick] (A) node[below left] {$a$} 
+      to[out=30, in=190] coordinate[pos=0.55] (M) 
+      (B) node[above right] {$b$};
+
+    % 标注曲线 L
+    \node at (3, -0.5) {$L$};
+
+    % 在中间点 M 处绘制 dl 矢量
+    % 计算切线方向大致为 20-30 度
+    % "与它并拍的是一个很短的箭头" -> 稍微偏移一点或就在线上
+    % drawing dl vector along the tangent
+    \draw[->, very thick] (M) -- ++(10:0.8) node[midway, above left] {$\d \bm{l}$};
+
+
+    % "在这个区线附近的合适位置... 放置一个箭头... 标注 A(x,y,z)"
+    % 绘制矢量场 A，放在曲线附近表示场
+    \coordinate (FieldPoint) at (4, 2);
+    \draw[->, very thick, blue] (FieldPoint) -- ++(45:1.2) node[right] {$\bm{A}(x,y,z)$};
+    
+    % 或者如果用户希望 A 在 dL 处：
+    %\draw[->, thick, blue] (M) -- ++(60:1.0) node[above] {$\mathbf{A}$};
+
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:curve-integral}
+\end{figure}

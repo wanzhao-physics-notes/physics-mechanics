@@ -1,0 +1,20 @@
+% 矢量的加法示意图
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=Stealth, scale=0.7]
+        \draw [->, thick] (0,0) -- (3,0) node [midway, below] {$ \bm{A} $};
+        \draw [->, thick] (0,0) -- (1,2) node [midway, left] {$ \bm{B} $};
+        \draw [->, thick] (0,0) -- (4,2) node [midway, above] {$ \bm{C} $};
+
+        \draw [dashed] (3,0) -- (4,2);
+        \draw [dashed] (1,2) -- (4,2);
+    \end{tikzpicture}
+    \quad
+    \begin{tikzpicture}[>=Stealth, scale=0.7]
+        \draw [->, thick] (0,0) -- (3,0) node [midway, below] {$ \bm{A} $};
+        \draw [->, thick] (3,0) -- (4,2) node [midway, right] {$ \bm{B} $};
+        \draw [->, thick] (0,0) -- (4,2) node [midway, above] {$ \bm{C} $};
+    \end{tikzpicture}
+    \caption{}
+    \label{fig:vector-addition}
+\end{figure}

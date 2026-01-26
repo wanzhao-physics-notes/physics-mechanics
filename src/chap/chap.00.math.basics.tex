@@ -50,7 +50,7 @@ $ \d y $ 与 $ \d x $ 之间的关系为
     \begin{equation}
         \sin x \sim \tan x \sim x, (x \to 0).
     \end{equation}
-    证明：
+    \textbf{证明}：
 
     \input{figure/chap.00/fig.important-approximation.tex}
 
@@ -222,6 +222,49 @@ $ \d y $ 与 $ \d x $ 之间的关系为
 
 $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
 
+\bigskip
+
+这里还要引入另一个与导数有关的重要概念——曲率与曲率半径。
+\begin{definition}{曲率与曲率半径}{curvature-curvature-radius}
+    设函数 $ y = f(x) $ 在点 $ x $ 处具有二阶导数，则该点处的曲率定义为
+    \begin{equation}
+        \kappa = \frac{|f''(x)|}{[1 + (f'(x))^2]^{3/2}}.
+    \end{equation}
+
+    曲率的倒数称为曲率半径，记为 $ \rho $，即
+    \begin{equation}
+        \rho = \frac{1}{\kappa} = \frac{[1 + (f'(x))^2]^{3/2}}{|f''(x)|}.
+    \end{equation}
+
+\end{definition}
+
+对于物理问题，曲率半径有时用来描述物体运动轨迹的弯曲程度。
+
+在参数方程的形式下，设曲线由参数 $ t $ 给出，即
+\begin{equation*}
+    \begin{cases}
+        x = \varphi (t) ;\\
+        y = \psi (t) .
+    \end{cases}
+\end{equation*}
+则曲率与曲率半径可表示为
+\begin{equation}
+    \kappa = \frac{|\dot{x} \ddot{y} - \dot{y} \ddot{x}|}{(\dot{x}^2 + \dot{y}^2)^{3/2}},\quad \rho = \frac{(\dot{x}^2 + \dot{y}^2)^{3/2}}{|\dot{x} \ddot{y} - \dot{y} \ddot{x}|},
+\end{equation}
+
+同时给出因极其常用，给出椭圆的曲率半径公式，设椭圆方程为
+\begin{equation*}
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,
+\end{equation*}
+则椭圆上点 $ (x, y) $ 处的曲率半径为
+\begin{equation}
+    \rho = \frac{(a^2 b^2)^{3/2}}{(a^4 y^2 + b^4 x^2)^{3/2}}.
+\end{equation}
+特别地，椭圆的长短半轴处的曲率半径分别为
+\begin{equation*}
+    \rho_a = \frac{b^2}{a},\quad \rho_b = \frac{a^2}{b}.
+\end{equation*}
+
 \subsection{积分}\label{subsec:integral}
 
 有许多数学书上把积分分为了不定积分与定积分两类，还有“积分是导数的逆运算”这样的说法。
@@ -286,7 +329,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         \int_a^b f(x) \d x = F(b) - F(a).
     \end{equation}
 
-    证明：
+    \textbf{证明}：
 
     设区间 $ [a, b] $ 被分成 $ n $ 个子区间 $ [x_{i-1}, x_i] $，$ \Delta x_i = x_i - x_{i-1} $，$ \xi_i \in [x_{i-1}, x_i] $。
     则有
@@ -325,7 +368,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
 \begin{example}{曲线段长度}{curve-length}
     设函数 $ y = f(x) $ 在区间 $ [a, b] $ 上连续且可导，求曲线 $ y = f(x) $ 在区间 $ [a, b] $ 上的弧长。
 
-    证明：
+    \textbf{证明}：
 
     设区间 $ [a, b] $ 被分成 $ n $ 个子区间 $ [x_{i-1}, x_i] $，$ \Delta x_i = x_i - x_{i-1} $，$ \xi_i \in [x_{i-1}, x_i] $。
     则曲线段在子区间 $ [x_{i-1}, x_i] $ 上的弧长近似为
@@ -358,6 +401,17 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
 
     这种表达式其实是对微分形式的曲线段长度公式的非严格表达，但也是形式计算奏效的一个例子。
 \end{note}
+
+\begin{note}{有关于积分技巧}{about-integration-techniques}
+    关于积分的计算，笔者在写到这里时，一直在思考是否需要介绍一些积分技巧，比如双元法，但最后还是选择放弃。
+    一方面，物理中的积分的计算往往并不复杂，更多的是经验的积累，而不是技巧的运用；
+    另一方面，像双元法这样的技巧，不论是深度还是广度，都远远超出了普通物理的范畴，这也违背了这份笔记的初衷。
+
+    因此笔者的建议是，数值积分依靠计算器或计算机软件即可，而符号积分则更多依赖于查表与经验积累。
+
+    另外还有一条经验，就是面对一个困难的积分，不妨把最复杂或者说“难看”的部分进行换元，往往会有意想不到的效果。
+\end{note}
+
     
 \subsection{常微分方程}\label{subsec:ordinary-differential-equation}
 
@@ -867,7 +921,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \begin{equation}
         P(D) e^{ax} = P(a) e^{ax} .
     \end{equation}
-    证明：
+    \textbf{证明}：
+
     注意到 $ P(D) $ 是由 $ D $ 的多项式构成的，因此只需证明
     \begin{equation*}
         D^n e^{ax} = a^n e^{ax} .
@@ -886,7 +941,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \begin{equation}
         y_p = \frac{1}{P(a)} e^{ax} .
     \end{equation}
-    证明：
+    \textbf{证明}：
+
     由指数代换法则，有
     \begin{equation*}
         P(D) y_p = P(D) \left( \frac{1}{P(a)} e^{ax} \right) = \frac{1}{P(a)} P(D) e^{ax} = \frac{1}{P(a)} P(a) e^{ax} = e^{ax} .
@@ -921,7 +977,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \begin{equation}
         P(D) \left( e^{ax} u(x) \right) = e^{ax} P(D + a) u(x) .
     \end{equation}
-    证明：
+    \textbf{证明}：
+
     注意到 $ P(D) $ 是由 $ D $ 的多项式构成的，因此只需证明
     \begin{equation*}
         D^n \left( e^{ax} u(x) \right) = e^{ax} (D + a)^n u(x) .
@@ -960,7 +1017,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \begin{equation}
         y_p = \frac{x e^{ax} }{P'(a)} .
     \end{equation}
-    证明：
+    \textbf{证明}：
+
     不妨设 $ a $，$ b $ （$ a \neq  b $）为 $ P(x) = 0 $ 的两个根，为方便起见，我们假设 $ P(x) $ 的最高次项系数为 $ 1 $。那么有：
     \begin{equation*}
         P(D) = (D - a)(D - b) 
@@ -996,7 +1054,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \begin{equation}
         y_p = \frac{x^n e^{ax} }{P^{(n)}(a)} .
     \end{equation}
-    证明：
+    \textbf{证明}：
+
     由于 $ a $ 为 $ P(D) = 0 $ 的 $ n $ 重根，因此 $ P(D) $ 可表示为
     \begin{equation*}
         P(D) = (D - a)^n \tilde{P}(D)
@@ -1028,7 +1087,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         - y' + y = x 
     \end{equation*}
     的一个特解。
-    解：
+    \textbf{解}：
+
     显然我们可以轻易的构造出一个特解 $ y_p = x + 1 $。
     这个方程用算子法可以写作：
     \begin{equation*}
@@ -1169,7 +1229,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         y'' + 4 y = x \cos x
     \end{equation*}
     的一个特解。
-    解：
+    
+    \textbf{解}：
     复化：
     \begin{equation*}
         (D^2 + 4) \tilde{y} = x e^{ix} .
@@ -1354,16 +1415,718 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
 
 \bigskip
 
+\input{figure/chap.00/fig.curve-integral.tex}
+
+图 \ref{fig:curve-integral} 中从线元始端到终端的矢量 $ \d \bm{l} $ 称为线元矢量。
+各 $ \d \bm{l} $ 所在位置 $ (x, y, z) $ 均有函数值 $ \bm{A} (x, y, z) $，将该位置处的矢量函数值与线元矢量的标量积 $ \bm{A} (x, y, z) \cdot \d \bm{l} $，从曲线段 $ L $ 的起点 $ a $ 积分到终点 $ b $，即得到沿曲线段 $ L $ 的矢量线积分：
+\begin{definition}{矢量线积分的定义}{definition-of-vector-line-integral}
+    \begin{equation}
+        \int_L \bm{A} (x, y, z) \cdot \d \bm{l} = \lim_{\max \Delta l_i \to 0} \sum_{i} \bm{A} (\xi_i) \cdot \Delta \bm{l}_i ,
+    \end{equation}
+    其中，曲线段 $ L $ 被划分为若干小曲线元矢量 $ \Delta \bm{l}_i $，$ \xi_i $ 为 $ \Delta \bm{l}_i $ 上的某点，$ \max \Delta l_i $ 表示所有小曲线元长度的最大值。
+\end{definition}
+
+如果 $ L $ 为闭合曲线，则称该矢量线积分为闭合矢量线积分，记为
+\begin{equation}
+    \oint_L \bm{A} (x, y, z) \cdot \d \bm{l} .
+\end{equation}
+
+\bigskip
+
+\input{figure/chap.00/fig.surface-element.tex}
+
+讲一个曲面（包括平面）$ S $，如图 \ref{fig:surface-element} 所示，分割成一系列无穷小的小片，称为面元，面积一般地记为 $ \d S $。
+在面元处引一个与面元法线方向相同的单位矢量 $ \bm{n} $，并规定曲面的一侧为内侧，另一侧为外侧，$ \bm{n} $ 指向外侧，称
+\begin{equation*}
+    \d \bm{S} = \d S \bm{n}
+\end{equation*}
+为面元矢量。
+若面元处有函数值 $ \phi (x, y, z) $，则将该位置处的函数值与面元面积的乘积 $ \phi (x, y, z) \d S $，从曲面 $ S $ 的各个面元上积分，即得到曲面 $ S $ 上的面积分：
+\begin{definition}{面积分的定义}{definition-of-surface-integral}
+    \begin{equation}
+        \iint_S \phi (x, y, z) \d S = \lim_{\max \Delta S_i \to 0} \sum_{i} \phi (\xi_i) \Delta S_i ,
+    \end{equation}
+    其中，曲面 $ S $ 被划分为若干小面元 $ \Delta S_i $，$ \xi_i $ 为 $ \Delta S_i $ 上的某点，$ \max \Delta S_i $ 表示所有小面元的最大面积。
+\end{definition}
+
+若取 $ \phi (x, y, z) = 1 $，则面积分即为曲面 $ S $ 的面积。
+如果 $ S $ 为闭合曲面，则称该面积分为闭合面积分，记为
+\begin{equation}
+    \oiint_S \phi (x, y, z) \d S .
+\end{equation}
+
+\bigskip
+
+类似地，若面元处有矢量函数值 $ \bm{A} (x, y, z) $，则将该位置处的矢量函数值与面元矢量的标量积 $ \bm{A} (x, y, z) \cdot \d \bm{S} $，从曲面 $ S $ 的各个面元上积分，即得到曲面 $ S $ 上的矢量面积分：
+\begin{definition}{矢量面积分的定义}{definition-of-vector-surface-integral}
+    \begin{equation}
+        \iint_S \bm{A} (x, y, z) \cdot \d \bm{S} = \lim_{\max \Delta S_i \to 0} \sum_{i} \bm{A} (\xi_i) \cdot \Delta \bm{S}_i ,
+    \end{equation}
+    其中，曲面 $ S $ 被划分为若干小面元矢量 $ \Delta \bm{S}_i $，$ \xi_i $ 为 $ \Delta \bm{S}_i $ 上的某点，$ \max \Delta S_i $ 表示所有小面元的最大面积。
+\end{definition}
+
+如果 $ S $ 为闭合曲面，则称该矢量面积分为闭合矢量面积分，记为
+\begin{equation}
+    \oiint_S \bm{A} (x, y, z) \cdot \d \bm{S} .
+\end{equation}
+
+\bigskip
+
+将某空间区域 $ V $ 分割成一系列无穷小的小体积，称为体元，体积一般地记为 $ \d V $。
+在体元处有函数值 $ \phi (x, y, z) $，则将该位置处的函数值与体元体积的乘积 $ \phi (x, y, z) \d V $，从空间区域 $ V $ 的各个体元上积分，即得到空间区域 $ V $ 上的体积分：
+\begin{definition}{体积分的定义}{definition-of-volume-integral}
+    \begin{equation}
+        \iiint_V \phi (x, y, z) \d V = \lim_{\max \Delta V_i \to 0} \sum_{i} \phi (\xi_i) \Delta V_i ,
+    \end{equation}
+    其中，空间区域 $ V $ 被划分为若干小体元 $ \Delta V_i $，$ \xi_i $ 为 $ \Delta V_i $ 上的某点，$ \max \Delta V_i $ 表示所有小体元的最大体积。
+\end{definition}
+
+若取 $ \phi (x, y, z) = 1 $，则体积分即为空间区域 $ V $ 的体积。
+
+关于线积分、面积分与体积分的完整讨论与各种算例，可以参考相关数学教材或者笔者后续的电磁学笔记。
+在普物力学的范围内，就只介绍到这里了。
+
+\section{行列式}\label{sec:determinant}
+
+\subsection{行列式}\label{subsec:determinant}
+行列式用被 $ || $ 符号包围的一个方阵表示，其中放置的数量或变量等称为行列式的元素，记为 $ a_{ij} $，其中 $ i $ 表示行号，$ j $ 表示列号。
+行列式的行数与列数相等，称为行列式的阶数，$ n $ 阶行列式表示为
+\begin{equation}
+    \left| \begin{array}{cccc}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{array} \right| .
+\end{equation}
+
+限于篇幅，此处无法给出行列式的定义，但我们要知道的是，行列式是一个数值，可以通过行列式的元素计算出来。
+
+在普物力学的范围内，最常用的是 $ 2 $ 阶与 $ 3 $ 阶行列式。
+$ 2 $ 阶行列式的计算较为简单，设
+\begin{equation}
+    D = \left| \begin{array}{cc}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{array} \right| ,
+\end{equation}
+则
+\begin{equation}
+    D = a_{11} a_{22} - a_{12} a_{21} .
+\end{equation}
+
+$ 3 $ 阶行列式的计算可以使用“对角线法则”。
+设
+\begin{equation}
+    D = \left| \begin{array}{ccc}
+        a_{11} & a_{12} & a_{13} \\
+        a_{21} & a_{22} & a_{23} \\
+        a_{31} & a_{32} & a_{33}
+    \end{array} \right| ,
+\end{equation}
+
+则
+\begin{equation}
+    D = a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33} .
+\end{equation}
+用对角线的方法，可以更直观地记忆 $ 3 $ 阶行列式的计算方法。
+将行列式的前两列复制粘贴到行列式的右侧，构成一个 $ 3 \times 5 $ 的矩阵（在此处就是一个数阵），如下所示：
+\begin{equation*}
+    \begin{bmatrix}
+        a_{11} & a_{12} & a_{13} & a_{11} & a_{12} \\
+        a_{21} & a_{22} & a_{23} & a_{21} & a_{22} \\
+        a_{31} & a_{32} & a_{33} & a_{31} & a_{32}
+    \end{bmatrix} .
+\end{equation*}
+然后从左上角到右下角画三条对角线，分别计算每条对角线上的元素乘积之和，记为 $ S_1 $；
+再从右上角到左下角画三条对角线，分别计算每条对角线上的元素乘积之和，记为 $ S_2 $；
+则行列式的值为 $ D = S_1 - S_2 $。
+
+对于一般的 $ n $ 阶行列式，有如下的归递性质：
+\begin{theorem}{行列式的归递性质}{recurrence-property-of-determinant}
+    设 $ D_n $ 为 $ n $ 阶行列式，则
+    \begin{equation}
+        D_n = \sum_{j=1}^{n} a_{ij} A_{ij} = \sum_{i=1}^{n} a_{ij} A_{ij} ,
+    \end{equation}
+    其中，$ A_{ij} = (-1)^{i+j} M_{ij} $，$ M_{ij} $ 为由去掉行列式 $ D_n $ 的第 $ i $ 行与第 $ j $ 列所构成的 $ (n-1) $ 阶行列式，称为 $ a_{ij} $ 的余子式，余子式就是去掉某行某列后剩下的行列式。
+\end{theorem}
+
+此外，笔者认为行列式的如下 $ 4 $ 个性质在普物力学中也较为常用，特此列出：
+\begin{theorem}{行列式的常用性质}{common-properties-of-determinant}
+    设 $ D $ 为行列式，则有如下性质：
+    \begin{enumerate}
+        \item 若行列式的某两行（或两列）互换位置，则行列式的值变号；
+        \item 若行列式的某一行（或某一列）的各元素同时乘以一个常数 $ k $，则行列式的值也乘以 $ k $；
+        \item 若行列式的某一行（或某一列）的各元素同时加上另一行（或另一列）的各元素乘以一个常数 $ k $，则行列式的值不变；
+        \item 行列式经过转置，也就是将行与列互换位置后，行列式的值不变。
+    \end{enumerate}
+\end{theorem}
+
+上述内容的证明此处从略。
+
+\subsection{行列式的应用}\label{subsec:applications-of-determinant}
+
+行列式在普物力学中的应用主要体现在解线性方程组与计算矢量的混合积等方面，有关矢量的内容见后续 \ref{sec:algebraic-operations-of-vectors} 节。
+
+线性方程组的一般形式为
+\begin{equation}
+    \left\{ \begin{aligned}
+        a_{11} x_1 + a_{12} x_2 + \ldots + a_{1n} x_n & = b_1 , \\
+        a_{21} x_1 + a_{22} x_2 + \ldots + a_{2n} x_n & = b_2 , \\
+        \vdots & \vdots \\
+        a_{m1} x_1 + a_{m2} x_2 + \ldots + a_{mn} x_n & = b_m .
+    \end{aligned} \right.
+\end{equation}
+其中，$ a_{ij} $ 与 $ b_i $ 均为已知常数，$ x_j $ 为未知数。
+当 $ m = n $ 时，称该方程组为 $ n $ 元线性方程组。
+设 $ n $ 元线性方程组的系数行列式为
+\begin{equation}
+    D = \left| \begin{array}{cccc}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{array} \right| ,
+\end{equation}
+则有如下定理：
+\begin{theorem}{克莱姆法则}{cramer-rule}
+    设 $ D \neq 0 $，则 $ n $ 元线性方程组有唯一解，且该解可表示为
+    \begin{equation}
+        x_j = \frac{D_j}{D} \quad (j = 1, 2, \ldots , n) ,
+    \end{equation}
+    其中，$ D_j $ 为将系数行列式 $ D $ 的第 $ j $ 列替换为常数列 $ (b_1 , b_2 , \ldots , b_n)^T $ 后所得到的行列式，即
+    \begin{equation}
+        D_j = \left| \begin{array}{ccccccc}
+            a_{11} & \cdots & a_{1,j-1} & b_1 & a_{1,j+1} & \cdots & a_{1n} \\
+            a_{21} & \cdots & a_{2,j-1} & b_2 & a_{2,j+1} & \cdots & a_{2n} \\
+            \vdots &  & \vdots & \vdots & \vdots &  & \vdots \\
+            a_{n1} & \cdots & a_{n,j-1} & b_n & a_{n,j+1} & \cdots & a_{nn}
+        \end{array} \right| .
+    \end{equation}
+\end{theorem}
+
+例如对于三元线性方程组
+\begin{equation*}
+    \left\{ \begin{aligned}
+        a_{11} x_1 + a_{12} x_2 + a_{13} x_3 & = b_1 , \\
+        a_{21} x_1 + a_{22} x_2 + a_{23} x_3 & = b_2 , \\
+        a_{31} x_1 + a_{32} x_2 + a_{33} x_3 & = b_3 ,
+    \end{aligned} \right.
+\end{equation*}
+的解及其展开式为
+\begin{equation*}
+    \begin{aligned}
+        x_1 & = \frac{1}{D} \left| \begin{array}{ccc}
+            b_1 & a_{12} & a_{13} \\
+            b_2 & a_{22} & a_{23} \\
+            b_3 & a_{32} & a_{33}
+        \end{array} \right| = \frac{b_1 (a_{22} a_{33} - a_{23} a_{32}) - b_2 (a_{12} a_{33} - a_{13} a_{32}) + b_3 (a_{12} a_{23} - a_{13} a_{22})}{a_{11} (a_{22} a_{33} - a_{23} a_{32}) - a_{21} (a_{12} a_{33} - a_{13} a_{32}) + a_{31} (a_{12} a_{23} - a_{13} a_{22})} , \\
+        x_2 & = \frac{1}{D} \left| \begin{array}{ccc}
+            a_{11} & b_1 & a_{13} \\
+            a_{21} & b_2 & a_{23} \\
+            a_{31} & b_3 & a_{33}
+        \end{array} \right| = \frac{-b_1 (a_{21} a_{33} - a_{23} a_{31}) + b_2 (a_{11} a_{33} - a_{13} a_{31}) - b_3 (a_{11} a_{23} - a_{13} a_{21})}{a_{11} (a_{22} a_{33} - a_{23} a_{32}) - a_{21} (a_{12} a_{33} - a_{13} a_{32}) + a_{31} (a_{12} a_{23} - a_{13} a_{22})} , \\
+        x_3 & = \frac{1}{D} \left| \begin{array}{ccc}
+            a_{11} & a_{12} & b_1 \\
+            a_{21} & a_{22} & b_2 \\
+            a_{31} & a_{32} & b_3
+        \end{array} \right| = \frac{b_1 (a_{21} a_{32} - a_{22} a_{31}) - b_2 (a_{11} a_{32} - a_{12} a_{31}) + b_3 (a_{11} a_{22} - a_{12} a_{21})}{a_{11} (a_{22} a_{33} - a_{23} a_{32}) - a_{21} (a_{12} a_{33} - a_{13} a_{32}) + a_{31} (a_{12} a_{23} - a_{13} a_{22})} .
+    \end{aligned}
+\end{equation*}
+显然，克莱姆法则可以极大的简化线性方程组的求解过程。
+
+\bigskip
+
+行列式在数学物理中的其他应用，后面陆续给出。
+
+\section{矢量的代数运算}\label{sec:algebraic-operations-of-vectors}
+
+\subsection{矢量的叠加与分解}\label{subsec:addition-and-decomposition-of-vectors}
+
+直观地说，没有方向的量称为标量，标量带有正负号，有大小，但没有方向，例如温度、质量、时间等。
+而有方向的量称为矢量，矢量既有大小，又有方向，例如位移、速度、力等，此处我们将其记为粗体字母形式，如 $ \bm{A} $，$ \bm{B} $ 等。
+
+\begin{note}{关于矢量表示法的说明}{note-on-vector-notation}
+    关于矢量的表示法，印刷时常用粗体字母形式表示矢量，而手写时常用带箭头的字母形式表示矢量，例如 $ \vec{A} $，$ \vec{B} $ 等。
+\end{note}
+
+矢量 $ \bm{A} $ 的大小称为 $ \bm{A} $ 的模，记为 $ |\bm{A}| $ 或 $ A $，是一个非负的标量。
+标量 $ \alpha $ 与矢量 $ \bm{A} $ 的乘积仍是一个矢量，记为
+\begin{equation}
+    \alpha \bm{A} = \bm{B} .
+\end{equation}
+$ \bm{B} $ 的模为
+\begin{equation}
+    |\bm{B}| = |\alpha| |\bm{A}| = |\alpha| A .
+\end{equation}
+此处 $ | \alpha| $ 表示标量 $ \alpha $ 的绝对值。
+若 $ \alpha > 0 $，则矢量 $ \bm{B} $ 与矢量 $ \bm{A} $ 方向相同；
+若 $ \alpha < 0 $，则矢量 $ \bm{B} $ 与矢量 $ \bm{A} $ 方向相反；
+若 $ \alpha = 0 $，则矢量 $ \bm{B} $ 为零矢量，记为 $ \bm{0} $，其模为零，且没有确定的方向。
+
+沿着 $ \bm{A} $ 的方向取一单位矢量，记为 $ a $ 或 $ \bm{e}_A $，则有
+\begin{equation}
+    \bm{A} = A \bm{e}_A .
+\end{equation}
+矢量 $ \bm{A} $ 的单位矢量 $ \bm{e}_A $ 的模为 $ 1 $。
+
+\bigskip
+
+\input{figure/chap.00/fig.vector-addition.tex}
+
+如图 \ref{fig:vector-addition} 所示，设有两个矢量 $ \bm{A} $ 与 $ \bm{B} $，它们的和称为矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 的叠加，记为
+\begin{equation}
+    \bm{C} = \bm{A} + \bm{B} .
+\end{equation}
+矢量叠加的几何意义可通过“平行四边形法则”来理解，即以矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 为邻边作平行四边形，则从平行四边形的一个顶点到对角顶点的矢量即为矢量 $ \bm{C} $；
+也可通过“首尾相接法则”来理解，即将矢量 $ \bm{B} $ 的起点与矢量 $ \bm{A} $ 的终点相接，则从矢量 $ \bm{A} $ 的起点到矢量 $ \bm{B} $ 的终点的矢量即为矢量 $ \bm{C} $。
+矢量叠加满足交换律与结合律，即
+\begin{equation}
+    \bm{A} + \bm{B} = \bm{B} + \bm{A} ,
+\end{equation}
+\begin{equation}
+    (\bm{A} + \bm{B}) + \bm{C} = \bm{A} + (\bm{B} + \bm{C}) .
+\end{equation}
+
+矢量的减法可视为加上一个方向相反的矢量，即
+\begin{equation}
+    \bm{A} - \bm{B} = \bm{A} + (-\bm{B}) .
+\end{equation}
+
+\bigskip
+
+矢量的分解是将一个矢量表示为几个互相垂直的分量矢量之和。
+
+\input{figure/chap.00/fig.vector-decomposition.tex}
+
+如图 \ref{fig:vector-decomposition} 所示，对于三维空间中正交的 $ Oxyz $ 坐标系，任何矢量 $ \bm{A} $ 都可以分解为沿 $ x $ 轴、$ y $ 轴与 $ z $ 轴方向的三个分量矢量之和，即
+\begin{equation}
+    \bm{A} = \bm{A}_x + \bm{A}_y + \bm{A}_z ,
+\end{equation}
+其中，
+\begin{equation}
+    \bm{A}_x = A_x \bm{e}_x , \quad \bm{A}_y = A_y \bm{e}_y , \quad \bm{A}_z = A_z \bm{e}_z .
+\end{equation}
+这里，$ A_x $，$ A_y $，$ A_z $ 分别为矢量 $ \bm{A} $ 在 $ x $ 轴、$ y $ 轴与 $ z $ 轴方向的投影“长度”（这里的“长度是有向长度”），称为矢量 $ \bm{A} $ 在各坐标轴方向的分量。
+$ \bm{e}_x $，$ \bm{e}_y $，$ \bm{e}_z $ 分别为 $ x $ 轴、$ y $ 轴与 $ z $ 轴的单位矢量。
+则矢量 $ \bm{A} $ 可表示为
+\begin{equation}
+    (A_x , A_y , A_z) = A_x \bm{e}_x + A_y \bm{e}_y + A_z \bm{e}_z .
+\end{equation}
+
+矢量 $ \bm{A} $ 的模与各分量之间的关系为
+\begin{equation}
+    A = \sqrt{A_x^2 + A_y^2 + A_z^2} .
+\end{equation}
+
+两个三维矢量相加时，可将它们分别在各坐标轴方向的分量相加，得到新矢量在各坐标轴方向的分量。
+例如，设有两个三维矢量 $ \bm{A} = (A_x , A_y , A_z) $ 与 $ \bm{B} = (B_x , B_y , B_z) $，则它们的和为
+\begin{equation}
+    \bm{C} = \bm{A} + \bm{B} = (A_x + B_x , A_y + B_y , A_z + B_z) .
+\end{equation}
+
+\bigskip
+
+类似地，对于 $ k $ 维空间中的正交坐标系，任何矢量 $ \bm{A} $ 都可以分解为沿各坐标轴方向的 $ k $ 个分量矢量之和，即
+\begin{equation}
+    \bm{A} = \bm{A}_1 + \bm{A}_2 + \ldots + \bm{A}_k = A_1 \bm{e}_1 + A_2 \bm{e}_2 + \ldots + A_k \bm{e}_k = \sum_{i=1}^{k} A_i \bm{e}_i ,
+\end{equation}
+且矢量 $ \bm{A} $ 的模与各分量之间的关系为
+\begin{equation}
+    A = \sqrt{A_1^2 + A_2^2 + \ldots + A_k^2} = \sqrt{\sum_{i=1}^{k} A_i^2} .
+\end{equation}
+两个维数相同的矢量相加时，可将它们分别在各坐标轴方向的分量相加，得到新矢量在各坐标轴方向的分量。
+例如，设有两个 $ k $ 维矢量 $ \bm{A} = (A_1 , A_2 , \ldots , A_k) $ 与 $ \bm{B} = (B_1 , B_2 , \ldots , B_k) $，则它们的和为
+\begin{equation}
+    \bm{C} = \bm{A} + \bm{B} = (A_1 + B_1 , A_2 + B_2 , \ldots , A_k + B_k) = \sum_{i=1}^{k} (A_i + B_i) \bm{e}_i .
+\end{equation}
+
+\subsection{矢量的点积}\label{subsec:dot-product-of-vectors}
+
+\begin{note}{关于矢量标积的名称说明}{note-on-names-of-dot-product-of-vectors}
+    矢量的点积在物理学中也称为矢量的标积或数量积。
+    所谓标积、标量积、点积、数量积、内积等，实际上都是同一个概念，只是名称不同而已。
+\end{note}
+
+矢量的点积定义如下：
+\begin{definition}{矢量的点积}{definition-of-dot-product-of-vectors}
+    设有两个矢量 $ \bm{A} $ 与 $ \bm{B} $，它们的点积记为 $ \bm{A} \cdot \bm{B} $，定义为
+    \begin{equation}
+        \bm{A} \cdot \bm{B} = AB \cos \theta ,
+    \end{equation}
+    其中，$ A $ 与 $ B $ 分别为矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 的模，$ \theta $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 之间的夹角。
+\end{definition}
+矢量的点积是一个标量。
+
+通过点积, 可将 $ \bm{A} $ 的模和分量各自表示成
+\begin{equation}
+    A = \sqrt{\bm{A} \cdot \bm{A}} ,
+\end{equation}
+\begin{equation}
+    A_x = \bm{A} \cdot \bm{e}_x , \quad A_y = \bm{A} \cdot \bm{e}_y , \quad A_z = \bm{A} \cdot \bm{e}_z .
+\end{equation}
+
+由点积的定义，不难得到如下性质：
+\begin{theorem}{矢量点积的性质}{properties-of-dot-product-of-vectors}
+    设有三个矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $，以及一个标量 $ k $，则有如下性质：
+    \begin{enumerate}
+        \item 交换律：$ \bm{A} \cdot \bm{B} = \bm{B} \cdot \bm{A} $；
+        \item 分配律：$ \bm{A} \cdot (\bm{B} + \bm{C}) = \bm{A} \cdot \bm{B} + \bm{A} \cdot \bm{C} $；
+        \item 结合律：$ (k \bm{A}) \cdot \bm{B} = k (\bm{A} \cdot \bm{B}) $。
+        \item 正定性：$ \bm{A} \cdot \bm{A} \geq 0 $，且当且仅当 $ \bm{A} = \bm{0} $ 时取等号。
+    \end{enumerate}
+\end{theorem}
+
+在三维空间中有
+\begin{equation}
+    \bm{e}_x \cdot \bm{e}_y = \bm{e}_y \cdot \bm{e}_z = \bm{e}_z \cdot \bm{e}_x = 0 ,
+\end{equation}
+\begin{equation}
+    \bm{e}_x \cdot \bm{e}_x = \bm{e}_y \cdot \bm{e}_y = \bm{e}_z \cdot \bm{e}_z = 1 .
+\end{equation}
+借此可以将两个三维矢量 $ \bm{A} = (A_x , A_y , A_z) $ 与 $ \bm{B} = (B_x , B_y , B_z) $ 的点积表示为
+\begin{equation}
+    \bm{A} \cdot \bm{B} = A_x B_x + A_y B_y + A_z B_z .
+\end{equation}
+
+类似地，在 $ k $ 维空间中有
+\begin{equation}
+    \bm{e}_i \cdot \bm{e}_j = \delta_{ij} = \begin{cases}
+        1 , & i = j , \\
+        0 , & i \neq j ,
+    \end{cases}
+\end{equation}
+其中，$ \delta_{ij} $ 称为克罗内克（Kronecker）符号。
+借此可以将两个 $ k $ 维矢量 $ \bm{A} = (A_1 , A_2 , \ldots , A_k) $ 与 $ \bm{B} = (B_1 , B_2 , \ldots , B_k) $ 的点积表示为
+\begin{equation}
+    \bm{A} \cdot \bm{B} = \sum_{i=1}^{k} A_i B_i .
+\end{equation}
+
+\subsection{矢量的叉积}\label{subsec:cross-product-of-vectors}
+\begin{note}{关于矢量叉积的名称说明}{note-on-names-of-cross-product-of-vectors}
+    矢量的叉积在物理学中也称为矢量的外积或向量积。
+    所谓叉积、外积、向量积、矢积、矢量积等，实际上都是同一个概念，只是名称不同而已。
+\end{note}
+矢量的叉积定义如下：
+\begin{definition}{矢量的叉积}{definition-of-cross-product-of-vectors}
+    设有两个三维矢量 $ \bm{A} $ 与 $ \bm{B} $，它们的叉积记为 $ \bm{A} \times \bm{B} $，定义为一个新矢量，其模为
+    \begin{equation}
+        |\bm{A} \times \bm{B}| = AB \sin \theta ,
+    \end{equation}
+    其中，$ A $ 与 $ B $ 分别为矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 的模，$ \theta $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 之间的夹角；
+    该新矢量的方向由右手定则确定，即将右手的四指从矢量 $ \bm{A} $ 的方向弯向矢量 $ \bm{B} $ 的方向，则大拇指所指的方向即为新矢量的方向。
+\end{definition}
+矢量的叉积是一个矢量。
+
+\begin{note}{关于右手定则的说明}{note-on-right-hand-rule}
+    关于为什么选择右手，而不是左手来确定矢量叉积的方向。
+    这实际上是没有问题的，因为这两个体系的结构是相同的，
+    但是如今大多数教材与文献都采用右手定则来确定矢量叉积的方向，所以我们也沿用这一传统。
+\end{note}
+
+叉积也有一些性质：
+\begin{theorem}{矢量叉积的性质}{properties-of-cross-product-of-vectors}
+    设有三个矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $，以及一个标量 $ k $，则有如下性质：
+    \begin{enumerate}
+        \item 反交换律：$ \bm{A} \times \bm{B} = - (\bm{B} \times \bm{A}) $；
+        \item 分配律：$ \bm{A} \times (\bm{B} + \bm{C}) = \bm{A} \times \bm{B} + \bm{A} \times \bm{C} $；
+        \item 结合律：$ (k \bm{A}) \times \bm{B} = k (\bm{A} \times \bm{B}) $；
+        \item 向量共线性：若矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 共线，则 $ \bm{A} \times \bm{B} = \bm{0} $。
+    \end{enumerate}
+\end{theorem}
+
+在三维空间中有
+\begin{equation}
+    \bm{e}_x \times \bm{e}_y = \bm{e}_z , \quad \bm{e}_y \times \bm{e}_z = \bm{e}_x , \quad \bm{e}_z \times \bm{e}_x = \bm{e}_y ,
+\end{equation}
+\begin{equation}
+    \bm{e}_y \times \bm{e}_x = -\bm{e}_z , \quad \bm{e}_z \times \bm{e}_y = -\bm{e}_x , \quad \bm{e}_x \times \bm{e}_z = -\bm{e}_y ,
+\end{equation}
+\begin{equation}
+    \bm{e}_x \times \bm{e}_x = \bm{e}_y \times \bm{e}_y = \bm{e}_z \times \bm{e}_z = \bm{0} .
+\end{equation}
+
+借此可以将两个三维矢量 $ \bm{A} = (A_x , A_y , A_z) $ 与 $ \bm{B} = (B_x , B_y , B_z) $ 的叉积表示为
+\begin{equation}
+    \bm{A} \times \bm{B} = \left| \begin{array}{ccc}
+        \bm{e}_x & \bm{e}_y & \bm{e}_z \\
+        A_x & A_y & A_z \\
+        B_x & B_y & B_z
+    \end{array} \right| = (A_y B_z - A_z B_y) \bm{e}_x + (A_z B_x - A_x B_z) \bm{e}_y + (A_x B_y - A_y B_x) \bm{e}_z .
+\end{equation}
+这里的行列式见前面 \ref{sec:determinant} 节。
+
+\begin{note}{关于叉积定义维数的说明}{note-on-dimensions-of-definition-of-cross-product-of-vectors}
+    关于叉积的定义，肯定会有读者提出疑问：为什么叉积只能定义在三维空间中，而不能定义在二维空间或更高维空间中呢？
+    实际上，叉积还可以定义在七维空间中，至于为什么是三维与七维空间，为什么要这样定义，这里便不做展开了。
+    但是我可以说的是这与四元数及李群和李代数有关，感兴趣的读者可以自行查阅相关资料。
+\end{note}
+
+\begin{note}{关于极矢量和轴矢量的说明}{note-on-axial-and-polar-vectors}
+    矢量根据其在空间中的变换性质，可分为极矢量与轴矢量两种。
+    极矢量（polar vector）也称为真矢量，是我们通常所说的矢量，例如位移、速度、力等，极矢量在空间反射变换下，与镜面垂直的分量会反向，而与镜面平行的分量不变；
+    轴矢量（axial vector）也称为伪矢量，是由两个极矢量通过叉积运算得到的矢量，例如角动量、磁场强度等，轴矢量在空间反射变换下，与镜面垂直的分量不变，而与镜面平行的分量会反向。
+
+    矢量的加法与点积运算不改变矢量的性质，而矢量的叉积运算会改变矢量的性质，即两个极矢量的叉积是一个轴矢量，两个轴矢量的叉积是一个极矢量，一个极矢量与一个轴矢量的叉积是一个极矢量。
+\end{note}
+
+\subsection{矢量的多重积}\label{subsec:multiple-product-of-vectors}
+
+矢量的多重积包括混合积与三重叉积等。
+
+混合积定义如下：
+\begin{definition}{矢量的混合积}{definition-of-scalar-triple-product-of-vectors}
+    设有三个三维矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $，它们的混合积记为 $ \bm{A} \cdot (\bm{B} \times \bm{C}) $，定义为
+    \begin{equation}
+        \bm{A} \cdot (\bm{B} \times \bm{C}) = ABC \sin \theta \cos \phi ,
+    \end{equation}
+    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $ 的模，$ \theta $ 为矢量 $ \bm{B} $ 与矢量 $ \bm{C} $ 之间的夹角，$ \phi $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{B} \times \bm{C} $ 之间的夹角。
+\end{definition}
+混合积是一个标量，并且满足循环对称性与反对称性，即
+\begin{equation}
+    \bm{A} \cdot (\bm{B} \times \bm{C}) = \bm{B} \cdot (\bm{C} \times \bm{A}) = \bm{C} \cdot (\bm{A} \times \bm{B}) ,
+\end{equation}
+\begin{equation}
+    \bm{A} \cdot (\bm{B} \times \bm{C}) = - \bm{A} \cdot (\bm{C} \times \bm{B}) .
+\end{equation}
+运用行列式可以将三个三维矢量 $ \bm{A} = (A_x , A_y , A_z) $，$ \bm{B} = (B_x , B_y , B_z) $ 与 $ \bm{C} = (C_x , C_y , C_z) $ 的混合积表示为
+\begin{equation}
+    \bm{A} \cdot (\bm{B} \times \bm{C}) = \left| \begin{array}{ccc}
+        A_x & A_y & A_z \\
+        B_x & B_y & B_z \\
+        C_x & C_y & C_z
+    \end{array} \right| .
+\end{equation}
+
+三重叉积定义如下：
+\begin{definition}{矢量的三重叉积}{definition-of-vector-triple-product-of-vectors}
+    设有三个三维矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $，它们的三重叉积记为 $ \bm{A} \times (\bm{B} \times \bm{C}) $，定义为一个新矢量，其方向与矢量 $ \bm{B} $ 与矢量 $ \bm{C} $ 所在平面内的某个方向相同，其模为
+    \begin{equation}
+        |\bm{A} \times (\bm{B} \times \bm{C})| = AB C \sin \theta \sin \phi ,
+    \end{equation}
+    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $ 的模，$ \theta $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 之间的夹角，$ \phi $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{C} $ 之间的夹角。
+\end{definition}
+三重叉积是一个矢量，并且满足如下恒等式：
+\begin{equation}
+    \bm{A} \times (\bm{B} \times \bm{C}) = \bm{B} (\bm{A} \cdot \bm{C}) - \bm{C} (\bm{A} \cdot \bm{B}) .
+\end{equation}
+
+在 $ Oxyz $ 坐标系中可以轻易的证明这个恒等式，即
+\begin{equation}
+    \begin{aligned}
+        \bm{A} \times (\bm{B} \times \bm{C}) = & (A_y B_z C_x - A_z B_y C_x) \bm{e}_x + (A_z B_x C_y - A_x B_z C_y) \bm{e}_y + (A_x B_y C_z - A_y B_x C_z) \bm{e}_z \\
+        = & [B_x (A_x C_x + A_y C_y + A_z C_z) - C_x (A_x B_x + A_y B_y + A_z B_z)] \bm{e}_x \\
+        & + [B_y (A_x C_x + A_y C_y + A_z C_z) - C_y (A_x B_x + A_y B_y + A_z B_z)] \bm{e}_y \\
+        & + [B_z (A_x C_x + A_y C_y + A_z C_z) - C_z (A_x B_x + A_y B_y + A_z B_z)] \bm{e}_z \\
+        = & \bm{B} (\bm{A} \cdot \bm{C}) - \bm{C} (\bm{A} \cdot \bm{B}) .
+    \end{aligned}
+\end{equation}
+
+\bigskip
+
+下面给出几个例子，帮助理解矢量的代数运算。
+\begin{example}{点积的逆运算}{example-of-inverse-operation-of-dot-product}
+    设有两个矢量 $ \bm{A} $ 与 $ \bm{B} $，已知 $ \bm{B} $，以及它们的点积 $ \alpha = \bm{A} \cdot \bm{B} $，求矢量 $ \bm{A} $。
+    \textbf{解}：
+
+    将 $ \bm{A} $ 分解为沿 $ \bm{B} $ 方向的分量 $ \bm{A}_{\parallel} $ 与垂直于 $ \bm{B} $ 方向的分量 $ \bm{A}_{\perp} $，即
+    \begin{equation}
+        \bm{A} = \bm{A}_{\parallel} + \bm{A}_{\perp} .
+    \end{equation}
+    则有
+    \begin{equation}
+        \alpha = \bm{A} \cdot \bm{B} = \bm{A}_{\parallel} \cdot \bm{B} + \bm{A}_{\perp} \cdot \bm{B} = \bm{A}_{\parallel} \cdot \bm{B} ,
+    \end{equation}
+    因为 $ \bm{A}_{\perp} $ 与 $ \bm{B} $ 垂直，所以 $ \bm{A}_{\perp} \cdot \bm{B} = 0 $。
+    设 $ |\bm{B}| = B $，则有
+    \begin{equation}
+        \bm{A}_{\parallel} = \frac{\alpha}{B^2} \bm{B} .
+    \end{equation}
+    因为 $ \bm{A}_{\perp} $ 与 $ \bm{B} $ 垂直，但具有不确定性，可表达成
+    \begin{equation}
+        \bm{A}_{\perp} = \bm{C} \times \bm{B} ,
+    \end{equation}
+    其中，$ \bm{C} $ 为任意矢量。
+    因此，矢量 $ \bm{A} $ 可表示为
+    \begin{equation}
+        \bm{A} = \frac{\alpha}{B^2} \bm{B} + \bm{C} \times \bm{B} .
+    \end{equation}
+\end{example}
+
+\begin{example}{叉积的逆运算}{example-of-inverse-operation-of-cross-product}
+    设有两个矢量 $ \bm{A} $ 与 $ \bm{B} $，已知 $ \bm{B} $，以及它们的叉积 $ \bm{D} = \bm{A} \times \bm{B} $，求矢量 $ \bm{A} $。
+    \textbf{解}：
+
+    将 $ \bm{A} $ 分解为沿 $ \bm{B} $ 方向的分量 $ \bm{A}_{\parallel} $ 与垂直于 $ \bm{B} $ 方向的分量 $ \bm{A}_{\perp} $，即
+    \begin{equation}
+        \bm{A} = \bm{A}_{\parallel} + \bm{A}_{\perp} .
+    \end{equation}
+    则有
+    \begin{equation}
+        \bm{D} = \bm{A} \times \bm{B} = \bm{A}_{\parallel} \times \bm{B} + \bm{A}_{\perp} \times \bm{B} = \bm{A}_{\perp} \times \bm{B} ,
+    \end{equation}
+    因为 $ \bm{A}_{\parallel} $ 与 $ \bm{B} $ 共线，所以 $ \bm{A}_{\parallel} \times \bm{B} = \bm{0} $。
+    设 $ |\bm{B}| = B $，则有
+    \begin{equation}
+        \bm{A}_{\perp} = \frac{1}{B^2} (\bm{B} \times \bm{D}) .
+    \end{equation}
+    因为 $ \bm{A}_{\parallel} $ 与 $ \bm{B} $ 共线，但具有不确定性，可表达成
+    \begin{equation}
+        \bm{A}_{\parallel} = \lambda \bm{B} ,
+    \end{equation}
+    其中，$ \lambda $ 为任意标量。
+    因此，矢量 $ \bm{A} $ 可表示为
+    \begin{equation}
+        \bm{A} = \lambda \bm{B} + \frac{1}{B^2} (\bm{B} \times \bm{D}) .
+    \end{equation}
+\end{example}
+
+这说明了在一定程度上，点积与叉积是不可逆的运算。
+
+\section{其他可能的数学工具}\label{sec:other-possible-mathematical-tools}
+
+\subsection{数列（序列）}\label{subsec:sequences}
+
+有关于数列（序列）的技巧，主要还是依靠高中的数学知识，比如凑等比、等差，裂项，线性递推，“不动点”等。
+此处便不详述了。
+
+
+\subsection{不等式}\label{subsec:inequalities}
+
+在物理中，常用的不等式主要有基本不等式等。
+\begin{theorem}{基本不等式链}{theorem-of-basic-inequality-chain}
+    设有任意实数 $ a $ 与 $ b $，则有如下基本不等式链：
+    \begin{equation}
+        \frac{2}{\frac{1}{a} + \frac{1}{b}} \leq \sqrt{ab} \leq \frac{a + b}{2} \leq \sqrt{\frac{a^2 + b^2}{2}} ,
+    \end{equation}
+    其中，当且仅当 $ a = b $ 时，各等号成立。
+\end{theorem}
+类似地，对于 $ n $ 个正实数 $ a_1 , a_2 , \ldots , a_n $，则有
+\begin{equation}
+    \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \ldots + \frac{1}{a_n}} \leq \sqrt[n]{a_1 a_2 \ldots a_n} \leq \frac{a_1 + a_2 + \ldots + a_n}{n} \leq \sqrt{\frac{a_1^2 + a_2^2 + \ldots + a_n^2}{n}} ,
+\end{equation}
+其中，当且仅当 $ a_1 = a_2 = \ldots = a_n $ 时，各等号成立。
+
+\subsection{复数}\label{subsec:complex-numbers}
+复数在物理中有着广泛的应用，尤其是在处理振动与波动现象时。
+设有一个复数 $ z = x + i y $，其中，$ x $ 与 $ y $ 分别为复数 $ z $ 的实部与虚部，它们均为实数，$ i $ 为虚数单位，满足 $ i^2 = -1 $。
+取实部与虚部分别作为横轴与纵轴，则复数 $ z $ 可表示为平面上的一个点，此平面称为复平面。
+复数 $ z $ 的共轭复数记为 $ z^* = x - i y $。
+且有
+\begin{equation}
+    z z^* = (x + i y)(x - i y) = x^2 + y^2 .
+\end{equation}
+
+取实部和取虚部的运算可表示为
+\begin{equation}
+    \Re (z) = \frac{z + z^*}{2} = x ,
+\end{equation}
+\begin{equation}
+    \Im (z) = \frac{z - z^*}{2i} = y .
+\end{equation}
+
+复数 $ z $ 也可以表示成极坐标形式，即
+\begin{equation}
+    z = r (\cos \theta + i \sin \theta) ,
+\end{equation}
+其中，$ r = \sqrt{x^2 + y^2} $ 为复数 $ z $ 的模，$ \theta = \arctan \frac{y}{x} $ 为复数 $ z $ 的辐角。
+复数的乘法与除法在极坐标形式下有着简单的表示：
+\begin{equation}
+    z_1 z_2 = r_1 r_2 [\cos (\theta_1 + \theta_2) + i \sin (\theta_1 + \theta_2)] ,
+\end{equation}
+\begin{equation}
+    \frac{z_1}{z_2} = \frac{r_1}{r_2} [\cos (\theta_1 - \theta_2) + i \sin (\theta_1 - \theta_2)] ,
+\end{equation}
+其中，复数 $ z_1 = r_1 (\cos \theta_1 + i \sin \theta_1) $ 与复数 $ z_2 = r_2 (\cos \theta_2 + i \sin \theta_2) $。
+
+欧拉公式是复数的一个重要公式，内容为
+\begin{equation}
+    e^{i \theta} = \cos \theta + i \sin \theta .
+\end{equation}
+利用欧拉公式，可以将复数 $ z = r (\cos \theta + i \sin \theta) $ 表示成指数形式，即
+\begin{equation}
+    z = r e^{i \theta} .
+\end{equation}
+复数的乘法与除法在指数形式下也有着简单的表示：
+\begin{equation}
+    z_1 z_2 = r_1 r_2 e^{i (\theta_1 + \theta_2)} ,
+\end{equation}
+\begin{equation}
+    \frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i (\theta_1 - \theta_2)} ,
+\end{equation}
+其中，复数 $ z_1 = r_1 e^{i \theta_1} $ 与复数 $ z_2 = r_2 e^{i \theta_2} $。
 
 
 
+\subsection{三角函数}\label{subsec:trigonometric-functions}
+三角函数在物理中有着广泛的应用，尤其是在处理周期性现象时。
+首先给出三倍角公式：
+\begin{equation}
+    \sin 3\theta = 3 \sin \theta - 4 \sin^3 \theta ,
+\end{equation}
+\begin{equation}
+    \cos 3\theta = 4 \cos^3 \theta - 3 \cos \theta .
+\end{equation}
+它们可以用复数法轻易的证明
+\begin{equation}
+    \begin{aligned}
+        \sin 3\theta + i \cos 3\theta & = (\cos \theta + i \sin \theta)^3 \\
+        & = \cos^3 \theta + 3 i \cos^2 \theta \sin \theta - 3 \cos \theta \sin^2 \theta - i \sin^3 \theta \\
+        & = (4 \cos^3 \theta - 3 \cos \theta) + i (3 \sin \theta - 4 \sin^3 \theta) .
+    \end{aligned}
+\end{equation}
 
+另外还有和差化积与积化和差公式：
+\begin{equation}
+    \begin{aligned}
+        \sin \alpha + \sin \beta & = 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \\
+        \sin \alpha - \sin \beta & = 2 \cos \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2} , \\
+        \cos \alpha + \cos \beta & = 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \\
+        \cos \alpha - \cos \beta & = -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2} ,
+    \end{aligned}
+\end{equation}
 
+\begin{equation}
+    \begin{aligned}
+        \sin \alpha \cos \beta & = \frac{1}{2} [\sin (\alpha + \beta) + \sin (\alpha - \beta)] , \\
+        \cos \alpha \sin \beta & = \frac{1}{2} [\sin (\alpha + \beta) - \sin (\alpha - \beta)] , \\
+        \cos \alpha \cos \beta & = \frac{1}{2} [\cos (\alpha + \beta) + \cos (\alpha - \beta)] , \\
+        \sin \alpha \sin \beta & = -\frac{1}{2} [\cos (\alpha + \beta) - \cos (\alpha - \beta)] .
+    \end{aligned}
+\end{equation}
 
+\subsection{求和公式}\label{subsec:summation-formulas}
 
+在物理中，常用的一些求和公式如下：
+\begin{equation}
+    \sum_{i=1}^{n} i = \frac{n(n+1)}{2} ,
+\end{equation}
+\begin{equation}
+    \sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6} ,
+\end{equation}
+\begin{equation}
+    \sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2 ,
+\end{equation}
 
+这三个公式可以用数学归纳法证明。
 
+\begin{equation}
+    \sum_{i=1}^{n} \sin i\theta = \frac{\sin \frac{n\theta}{2} \sin \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} ,
+\end{equation}
+\begin{equation}
+    \sum_{i=1}^{n} \cos i\theta = \frac{\sin \frac{n\theta}{2} \cos \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} .
+\end{equation}
 
-
-
-
+三角函数的求和公式可以用复数法证明：
+\begin{equation}
+    \begin{aligned}
+        \sum_{i=1}^{n} \sin i\theta & = \Im \left( \sum_{i=1}^{n} e^{i i \theta} \right) = \Im \left( e^{i \theta} \frac{1 - e^{i n \theta}}{1 - e^{i \theta}} \right) \\
+        & = \Im \left( \frac{e^{i \frac{(n+1)\theta}{2}} (e^{-i \frac{n\theta}{2}} - e^{i \frac{n\theta}{2}})}{e^{i \frac{\theta}{2}} (e^{-i \frac{\theta}{2}} - e^{i \frac{\theta}{2}})} \right) = \frac{\sin \frac{n\theta}{2} \sin \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} ,
+    \end{aligned}
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        \sum_{i=1}^{n} \cos i\theta & = \Re \left( \sum_{i=1}^{n} e^{i i \theta} \right) = \Re \left( e^{i \theta} \frac{1 - e^{i n \theta}}{1 - e^{i \theta}} \right) \\
+        & = \Re \left( \frac{e^{i \frac{(n+1)\theta}{2}} (e^{-i \frac{n\theta}{2}} - e^{i \frac{n\theta}{2}})}{e^{i \frac{\theta}{2}} (e^{-i \frac{\theta}{2}} - e^{i \frac{\theta}{2}})} \right) = \frac{\sin \frac{n\theta}{2} \cos \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} .
+    \end{aligned}
+\end{equation}

@@ -1,0 +1,47 @@
+% 曲面及面元矢量示意图
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, z=-0.6cm, scale=0.6]
+    % 1. 绘制曲面 S (用平滑曲线围成一个类四边形曲面)
+    % 定义四个角点的大致位置，利用 tension 控制弯曲
+    \draw [thick, fill=gray!10] plot [smooth cycle, tension=0.7] coordinates {
+      (0,0) (5,1) (6,5) (1,4)
+    };
+    
+    % 2. 标注 内、外、S
+    % 假设曲面是封闭曲面的一部分，或者是开放曲面区分两侧
+    % 根据描述“左边内，右边外”，这里简单放置文本
+    \node at (-0.5, 2.5) {内};
+    \node at (6.5, 2.5) {外};
+    \node at (2, 1.5) {\Large $S$};
+
+    % 3. 绘制面元 dS (一个小的平行四边形)
+    \begin{scope}[shift={(3.8, 3.2)}, rotate=-10] 
+        % 在坐标 (3.8,3.2) 附近画一个小平行四边形
+        % 定义面元的四个顶点，模拟透视
+        \coordinate (p1) at (0,0);
+        \coordinate (p2) at (0.6, 0.1);
+        \coordinate (p3) at (0.7, 0.7);
+        \coordinate (p4) at (0.1, 0.6);
+        
+        \draw[fill=white, thin] (p1) -- (p2) -- (p3) -- (p4) -- cycle;
+        
+        % 面元标注 dS
+        \node[below right, font=\footnotesize] at (p2) {$\d \bm{S}$};
+
+        % 4. 绘制法向量和面元矢量
+        % 中心点
+        \coordinate (center) at (0.35, 0.35);
+        
+        % 法向矢量 n (稍长)
+        \draw[->, thick, blue] (center) -- ++(70:1.5) node[above] {$\bm{n}$};
+        
+        % 面元矢量 dS vector (稍短，方向相同)
+        \draw[->, thick, red] (center) -- ++(70:0.8) node[right, font=\footnotesize, xshift=2pt] {$\d \bm{S} = \d S \bm{n}$};
+    \end{scope}
+
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:surface-element}
+\end{figure}
+
