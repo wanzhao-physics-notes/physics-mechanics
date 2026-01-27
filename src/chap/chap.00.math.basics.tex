@@ -1,8 +1,9 @@
+% !TeX root = ../main.tex
 \chapter{数学基础}\label{chap:math-basics}
 \addtocontents{los}{\protect\addvspace{10pt}}
 
 \begin{intro}
-物理的学习离不开数学，但学习时间的有限使得很多同学纠结数学应该学到多深。在普通物理的范畴内，作者在这里提出一些小小的建议。
+物理的学习离不开数学，但学习时间的有限使得很多同学纠结，不知道数学应该学多深。在普通物理的范畴内，作者在这里提出一些小小的建议。
 
 数学知识分两类。
 
@@ -10,8 +11,8 @@
 
 第二类是有助于物理理解，但不要求完全掌握的，比如矢量分析与场论、张量代数……它们有助于加深你对物理情景的理解，但在普通物理的题目中出现的概率较低，这种知识需要学习，但学习的深度要视自身情况而定。
 
-这一章虽然叫做数学基础，篇幅不长，但涵盖的内容并不少，并不需要通篇阅读，而是当你在学习物理的过程中遇到了数学上的困难时，再回头查阅有关内容。
-如果你能从我的注记中获得一些启发，那我的目的便达到了。
+这一章虽然叫做数学基础，篇幅不长，但涵盖的内容并不少，因此并不需要通篇阅读。但是当你在学习物理的过程中遇到了数学上的困难时，可以回头查阅有关内容。
+倘若你能从我的注记中获得一些启发，那我的目的便达到了。
 \end{intro}
 
 \section{一元函数微积分}\label{sec:single-variable-calculus}
@@ -34,7 +35,7 @@
 
 自变量 $ \Delta x \to 0$ 时，称为自变量微分，记为 $ \d x$，$ \d x$ 是无穷小量，不是零。
 但因为它是无穷小量，它在与有限量的运算中，在一些情况下可以视为 0 （但不是在所有情况下都可以视为 0）。
-在连续区间内，自变量增量 $\Delta x$ 趋近于微分 $\d x$，函数增量 $\Delta y \to \d y$，称为函数微分，记为 $\d y$，它也是无穷小量。
+在连续区间内，自变量增量 $\Delta x \to \d x$，函数增量 $\Delta y \to \d y$，称为函数微分，记为 $\d y$，它也是无穷小量。
 $ \d y $ 与 $ \d x $ 之间的关系为
 \begin{equation*}
     \d y = y (x + \d x) - y (x).
@@ -42,7 +43,7 @@ $ \d y $ 与 $ \d x $ 之间的关系为
 
 \begin{note}{符号说明}{symbol-explanation}
     显然，因为 $ y(x) $ 不一定是单调函数，所以 $ \Delta y $ 和 $ \d y $ 可以是正的、负的或零。
-    所以只要你严格遵守定义与符号计算的基本规则，就不会出错。
+    但是只要你严格遵守定义与符号计算的基本规则，就不会出错。
     这句话在一些微元分析的场景下尤其适用。
 \end{note}
 
@@ -120,15 +121,19 @@ $ \d y $ 与 $ \d x $ 之间的关系为
         &(3)\quad \left( \frac{y_1}{y_2} \right)' = \frac{y_1' y_2 - y_1 y_2'}{y_2^2} ;\\
         &(4)\quad (y_1 \circ y_2)' = (y_1' \circ y_2) \cdot y_2' .\label{eq:derivative-composition}
     \end{align}
-
+    
 \end{illustration}
+证明略去
 
-证明略去。
+\begin{note}{复合函数记号的说明}{composition-function-notation}
+    式 \ref{eq:derivative-composition} 中的 $ y_1 \circ y_2 $ 表示复合函数，即 $ y_1 (y_2 (x)) $。
+\end{note}
+
 
 其中，式 \ref{eq:derivative-composition} 被称为复合函数的求导法则。
 在微分的形式下，式 \ref{eq:derivative-composition} 可写为
 \begin{equation}
-    \frac{\d y_2}{\d x} = \frac{\d y_2}{\d y_1} \cdot \frac{\d y_1}{\d x}.
+    \frac{\d y_1}{\d x} = \frac{\d y_1}{\d y_2} \cdot \frac{\d y_2}{\d x} .
 \end{equation}
 
 这也在一定程度上为我们对导数执行的“消去”操作的正确性提供了依据。
@@ -198,8 +203,8 @@ $ \d y $ 与 $ \d x $ 之间的关系为
 \begin{equation*}
     \lim_{n \to \infty} \frac{f^{(n)}(x_0)}{n!} (x - x_0)^n = 0.
 \end{equation*}
-
 但事实上，函数能否展成泰勒级数，还需要满足更强的条件，这里不再赘述。
+
 \bigskip
 
 函数 $ f(x) $ 若能在点 $ x_0 $ 两侧某范围内展开成泰勒级数，且级数在该范围内收敛于函数值，便称这一范围为 $ f(x) $ 的收敛区间。
@@ -215,12 +220,33 @@ $ \d y $ 与 $ \d x $ 之间的关系为
     
 \end{illustration}
 
-其中，式 \ref{eq:taylor-binomial} 中的二项式系数定义为
-\begin{equation}
-    \binom{m}{n} = \frac{m (m - 1) (m - 2) \cdots [m - (n - 1)]}{n!}.
-\end{equation}
+\begin{note}{二项式系数的说明}{binomial-coefficient-explanation}
+    式 \ref{eq:taylor-binomial} 中的二项式系数定义为
+    \begin{equation*}
+        \binom{m}{n} = \frac{m (m - 1) (m - 2) \cdots [m - (n - 1)]}{n!} .
+    \end{equation*}
 
-$ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
+    特别地，当 $ m $ 为非负整数时，二项式系数可简化为
+    \begin{equation*}
+        \binom{m}{n} = 
+        \begin{cases}
+            \frac{m!}{n! (m - n)!}, & n \leq m ;\\
+            0, & n > m .
+        \end{cases}
+    \end{equation*}
+    这与我们在组合数学中学过的排列数和组合数有如下关系：
+    \begin{equation*}
+        A_m^n = n! \binom{m}{n},\quad C_m^n = \binom{m}{n} .
+    \end{equation*}
+    其中 $ A_m^n $ 表示从 $ m $ 个不同元素中取出 $ n $ 个元素进行排列的总数，$ C_m^n $ 表示从 $ m $ 个不同元素中取出 $ n $ 个元素进行组合的总数。
+    需要满足 $ m \geq n $。
+\end{note}
+
+$ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数，即
+\begin{equation*}
+    f(x) = f(0) + \frac{f'(0)}{1!} x + \frac{f''(0)}{2!} x^2 + \cdots + \frac{f^{(n)}(0)}{n!} x^n + R_n.
+\end{equation*}
+其中 余项 $ R_n $ 同上。
 
 \bigskip
 
@@ -252,7 +278,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \kappa = \frac{|\dot{x} \ddot{y} - \dot{y} \ddot{x}|}{(\dot{x}^2 + \dot{y}^2)^{3/2}},\quad \rho = \frac{(\dot{x}^2 + \dot{y}^2)^{3/2}}{|\dot{x} \ddot{y} - \dot{y} \ddot{x}|},
 \end{equation}
 
-同时给出因极其常用，给出椭圆的曲率半径公式，设椭圆方程为
+同时因极其常用，给出椭圆的曲率半径公式，设椭圆方程为
 \begin{equation*}
     \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,
 \end{equation*}
@@ -297,14 +323,17 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         &(1)\quad \int x^n \d x = \frac{x^{n+1}}{n+1} + C,\quad (n \neq -1) ;\\
         &(2)\quad \int \frac{1}{x} \d x = \ln |x| + C ;\\
         &(3)\quad \int a^x \d x = \frac{a^x}{\ln a} + C ;\\
-        &(4)\quad \int \log_a x \d x = x (\log_a x - \log_e a) + C ;\\
-        &(5)\quad \int \sin x \d x = -\cos x + C ;\\
-        &(6)\quad \int \cos x \d x = \sin x + C .
+        &(4)\quad \int e^x \d x = e^x + C ;\\
+        &(5)\quad \int \log_a x \d x = x (\log_a x - \log_e a) + C ;\\
+        &(6)\quad \int \ln x \d x = x (\ln x - 1) + C ;\\
+        &(7)\quad \int \sin x \d x = -\cos x + C ;\\
+        &(8)\quad \int \cos x \d x = \sin x + C .
     \end{align}
 
 \end{illustration}
 
-有了这些，我们就可以计算几乎所有可解的不定积分了。
+有了这些，我们就可以计算几乎所有可解（可用初等函数表示）的不定积分了。
+
 \bigskip
 
 \begin{definition}{定积分}{definite-integral}
@@ -341,6 +370,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         \int_a^b f(x) \d x = F(b) - F(a).
     \end{equation*}
     \qed
+
     上述证明中运用了微分中值定理，亦即拉格朗日（Lagrange）中值定理，可以自行查阅相关资料，此处不再赘述。
 \end{theorem}
 
@@ -865,7 +895,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \frac{\d^n y}{\d x^n} + a_{n-1} \frac{\d^{n-1} y}{\d x^{n-1}} + \ldots + a_1 \frac{\d y}{\d x} + a_0 y = 0 \label{eq:nth-order-constant-coefficient-homogeneous-linear-ordinary-differential-equation},
 \end{equation}
 按实根、重根与复根的不同情况，可得如下结论：
-\begin{theorem}{n 阶常系数齐次线性微分方程的基本解组}{fundamental-solution-set-of-nth-order-constant-coefficient-homogeneous-linear-ordinary-differential-equation}
+\begin{theorem}{$ n $ 阶常系数齐次线性微分方程的基本解组}{fundamental-solution-set-of-nth-order-constant-coefficient-homogeneous-linear-ordinary-differential-equation}
     设 $ n $ 阶常系数齐次线性微分方程的特征方程为
     \begin{equation*}
         \lambda^n + a_{n-1} \lambda^{n-1} + \ldots + a_1 \lambda + a_0 = 0 ,
@@ -1054,6 +1084,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
     \begin{equation}
         y_p = \frac{x^n e^{ax} }{P^{(n)}(a)} .
     \end{equation}
+
     \textbf{证明}：
 
     由于 $ a $ 为 $ P(D) = 0 $ 的 $ n $ 重根，因此 $ P(D) $ 可表示为
@@ -1087,6 +1118,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         - y' + y = x 
     \end{equation*}
     的一个特解。
+
     \textbf{解}：
 
     显然我们可以轻易的构造出一个特解 $ y_p = x + 1 $。
@@ -1279,6 +1311,13 @@ $ x_0 = 0 $ 时，称为麦克劳林（Maclaurin）级数。
         \end{equation*}
     }
 \end{example}
+
+\begin{note}{关于微分算子法的致谢}{note-on-differential-operator-method-thanks}
+    上述关于微分算子法的叙述几乎全部来自Hue-But在知乎上发表的《常微分方程的微分算子法》\cite{huebut2021}一文，在此表示感谢。
+\end{note}
+
+
+
 
 \section{多元函数微积分}\label{sec:multivariable-calculus}
 
@@ -1589,7 +1628,7 @@ $ 3 $ 阶行列式的计算可以使用“对角线法则”。
     \end{array} \right| ,
 \end{equation}
 则有如下定理：
-\begin{theorem}{克莱姆法则}{cramer-rule}
+\begin{theorem}{克拉默法则}{cramer-rule}
     设 $ D \neq 0 $，则 $ n $ 元线性方程组有唯一解，且该解可表示为
     \begin{equation}
         x_j = \frac{D_j}{D} \quad (j = 1, 2, \ldots , n) ,
@@ -1633,7 +1672,7 @@ $ 3 $ 阶行列式的计算可以使用“对角线法则”。
         \end{array} \right| = \frac{b_1 (a_{21} a_{32} - a_{22} a_{31}) - b_2 (a_{11} a_{32} - a_{12} a_{31}) + b_3 (a_{11} a_{22} - a_{12} a_{21})}{a_{11} (a_{22} a_{33} - a_{23} a_{32}) - a_{21} (a_{12} a_{33} - a_{13} a_{32}) + a_{31} (a_{12} a_{23} - a_{13} a_{22})} .
     \end{aligned}
 \end{equation*}
-显然，克莱姆法则可以极大的简化线性方程组的求解过程。
+显然，克拉默法则可以极大的简化线性方程组的求解过程，尤其适用于 $ 2 $ 元与 $ 3 $ 元线性方程组的求解。
 
 \bigskip
 
@@ -1904,7 +1943,7 @@ $ \bm{e}_x $，$ \bm{e}_y $，$ \bm{e}_z $ 分别为 $ x $ 轴、$ y $ 轴与 $ 
     \begin{equation}
         |\bm{A} \times (\bm{B} \times \bm{C})| = AB C \sin \theta \sin \phi ,
     \end{equation}
-    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $ 的模，$ \theta $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{B} $ 之间的夹角，$ \phi $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{C} $ 之间的夹角。
+    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \bm{A} $，$ \bm{B} $ 与 $ \bm{C} $ 的模，$ \theta $ 为矢量 $ \bm{B} $ 与矢量 $ \bm{C} $ 之间的夹角，$ \phi $ 为矢量 $ \bm{A} $ 与矢量 $ \bm{B} \times \bm{C} $ 之间的夹角。
 \end{definition}
 三重叉积是一个矢量，并且满足如下恒等式：
 \begin{equation}
@@ -2099,34 +2138,35 @@ $ \bm{e}_x $，$ \bm{e}_y $，$ \bm{e}_z $ 分别为 $ x $ 轴、$ y $ 轴与 $ 
 
 在物理中，常用的一些求和公式如下：
 \begin{equation}
-    \sum_{i=1}^{n} i = \frac{n(n+1)}{2} ,
+    \sum_{k=1}^{n} k = \frac{n (n+1)}{2} ,
 \end{equation}
 \begin{equation}
-    \sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6} ,
+    \sum_{k=1}^{n} k^2 = \frac{n (n+1) (2n+1)}{6} ,
 \end{equation}
 \begin{equation}
-    \sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2 ,
+    \sum_{k=1}^{n} k^3 = \left[ \frac{n (n+1)}{2} \right]^2 .
 \end{equation}
-
 这三个公式可以用数学归纳法证明。
 
+另外，还有一些三角函数的求和公式：
 \begin{equation}
-    \sum_{i=1}^{n} \sin i\theta = \frac{\sin \frac{n\theta}{2} \sin \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} ,
+    \sum_{k=0}^{n} \sin (k \theta) = \frac{\sin \frac{(n+1) \theta}{2} \sin \frac{n \theta}{2}}{\sin \frac{\theta}{2}} ,
 \end{equation}
 \begin{equation}
-    \sum_{i=1}^{n} \cos i\theta = \frac{\sin \frac{n\theta}{2} \cos \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} .
+    \sum_{k=0}^{n} \cos (k \theta) = \frac{\sin \frac{(n+1) \theta}{2} \cos \frac{n \theta}{2}}{\sin \frac{\theta}{2}} ,
 \end{equation}
 
 三角函数的求和公式可以用复数法证明：
 \begin{equation}
-    \begin{aligned}
-        \sum_{i=1}^{n} \sin i\theta & = \Im \left( \sum_{i=1}^{n} e^{i i \theta} \right) = \Im \left( e^{i \theta} \frac{1 - e^{i n \theta}}{1 - e^{i \theta}} \right) \\
-        & = \Im \left( \frac{e^{i \frac{(n+1)\theta}{2}} (e^{-i \frac{n\theta}{2}} - e^{i \frac{n\theta}{2}})}{e^{i \frac{\theta}{2}} (e^{-i \frac{\theta}{2}} - e^{i \frac{\theta}{2}})} \right) = \frac{\sin \frac{n\theta}{2} \sin \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} ,
-    \end{aligned}
+    \sum_{k=0}^{n} \sin (k \theta) 
+    = \Im \left( \sum_{k=0}^{n} e^{i k \theta} \right) = \Im \left( \frac{1 - e^{i (n+1) \theta}}{1 - e^{i \theta}} \right) 
+    = \Im \left( \frac{e^{i \frac{(n+1) \theta}{2}} \left( e^{-i \frac{(n+1) \theta}{2}} - e^{i \frac{(n+1) \theta}{2}} \right)}{e^{i \frac{\theta}{2}} \left( e^{-i \frac{\theta}{2}} - e^{i \frac{\theta}{2}} \right)}\right)
+    = \frac{\sin \frac{(n+1) \theta}{2} \sin \frac{n \theta}{2}}{\sin \frac{\theta}{2}} ,
 \end{equation}
+
 \begin{equation}
-    \begin{aligned}
-        \sum_{i=1}^{n} \cos i\theta & = \Re \left( \sum_{i=1}^{n} e^{i i \theta} \right) = \Re \left( e^{i \theta} \frac{1 - e^{i n \theta}}{1 - e^{i \theta}} \right) \\
-        & = \Re \left( \frac{e^{i \frac{(n+1)\theta}{2}} (e^{-i \frac{n\theta}{2}} - e^{i \frac{n\theta}{2}})}{e^{i \frac{\theta}{2}} (e^{-i \frac{\theta}{2}} - e^{i \frac{\theta}{2}})} \right) = \frac{\sin \frac{n\theta}{2} \cos \frac{(n+1)\theta}{2}}{\sin \frac{\theta}{2}} .
-    \end{aligned}
+    \sum_{k=0}^{n} \cos (k \theta) 
+    = \Re \left( \sum_{k=0}^{n} e^{i k \theta} \right) = \Re \left( \frac{1 - e^{i (n+1) \theta}}{1 - e^{i \theta}} \right) 
+    = \Re \left( \frac{e^{i \frac{(n+1) \theta}{2}} \left( e^{-i \frac{(n+1) \theta}{2}} - e^{i \frac{(n+1) \theta}{2}} \right)}{e^{i \frac{\theta}{2}} \left( e^{-i \frac{\theta}{2}} - e^{i \frac{\theta}{2}} \right)}\right)
+    = \frac{\sin \frac{(n+1) \theta}{2} \cos \frac{n \theta}{2}}{\sin \frac{\theta}{2}} .
 \end{equation}

@@ -1,3 +1,6 @@
+% !TeX program = latexmk
+% !BIB program = biber
+
 \documentclass[a4paper]{book}
 
 \usepackage{physics-notes-style}
@@ -9,12 +12,15 @@
 \input{chap/titlepage.tex}
 
 \frontmatter
-\include{chap/preface.tex}
+\include{chap/preface.contrib}
+\include{chap/preface.overview}
 \tableofcontents
 
 \mainmatter
-\include{chap/chap.00.math.basics.tex}
+\include{chap/chap.00.math.basics}
 
+\backmatter
+\printbibliography[heading=bibintoc, title={参考文献}]
 
 \end{document}
 
