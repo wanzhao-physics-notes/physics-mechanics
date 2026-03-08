@@ -1,0 +1,39 @@
+\chapter{静电学}\label{chap:electrostatics}
+
+\begin{intro}
+    同电磁学的历史发展一样，我们从静电学开始，一步步走入真正的电磁学世界。
+
+    在这里你能见到「历代大能」的奇思妙想和精巧构造。
+    少年，不必迟疑，跟随他们的脚步，去探索电磁学的奥秘吧。
+\end{intro}
+
+\section{静电的基本现象和基本规律}
+
+\subsection{两种电荷}
+1747年，美国富兰克林（Franklin）通过一系列实验，发现了电荷的两种类型，并将它们命名为正电荷和负电荷。
+他将与丝绸摩擦过的玻璃棒带的电荷定义为正电荷，而与毛皮摩擦过的橡胶棒带的电荷定义为负电荷。
+
+这最后也成为了我们现在使用的电荷符号约定。即使这导致电流的方向与电子的实际运动方向相反，但这个约定已经被广泛接受并沿用至今。
+
+\subsection{静电感应与电荷守恒}
+静电感应是指当一个带电物体靠近一个导体时，导体内部的电荷会重新分布，导致导体表面出现与带电物体相反的电荷。
+
+这种现象和之前所述的摩擦起电共同 说明了起电过程的实质是\textbf{电荷从一个物体（或物体的一部分）转移到另一个物体（或同一物体的另一部分）的过程}。
+
+根据以上事实以及大量的实验观察，我们可以得出一个重要的结论：\textbf{电荷既不能被创造，也不能被消灭，它们只能从一个物体转移到另一个物体，或者在同一物体内部重新分布}，
+也就是说\textbf{在任何物理过程中，电荷的总量保持不变}。
+这个结论被称为\textbf{电荷守恒定律}，它是电磁学的基本定律之一。
+对于某个边界确定的系统来说，电荷守恒定律可以用数学表达式表示为：
+\begin{equation}
+    \frac{\d Q}{\d t} = \frac{\partial Q}{\partial t} + \oint_S \symbfit{J} \cdot \d \symbfit{S} = 0
+\end{equation}
+而对于空间中某个特定的点来说，由上式可以通过如下推导得到电荷连续方程：
+\begin{equation}
+    \begin{aligned}
+        \frac{\d Q}{\d t}                                                                                                  & = \frac{\partial Q}{\partial t} + \oiint_S \symbfit{J} \cdot \d \symbfit{S} = 0                         \\
+        \Leftrightarrow \frac{\d}{\d t} \int_V \rho_{\symup{e}} \d V                                                       & = \frac{\partial}{\partial t} \int_V \rho_{\symup{e}} \d V + \iiint_V \nabla \cdot \symbfit{J} \d V = 0 \\
+        \Leftrightarrow \int_V \left( \frac{\partial \rho_{\symup{e}}}{\partial t} + \nabla \cdot \symbfit{J} \right) \d V & = 0
+        \Rightarrow \frac{\partial \rho_{\symup{e}}}{\partial t} + \nabla \cdot \symbfit{J} = 0
+    \end{aligned}
+\end{equation}
+其中$Q$表示系统中的总电荷量，$\rho_{\symup{e}}$表示电荷体密度，$\symbfit{J}$表示电流密度，$S$表示系统的边界面，$V$表示系统的体积。
