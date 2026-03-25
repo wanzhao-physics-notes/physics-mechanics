@@ -40,11 +40,10 @@
 \RequirePackage{amsthm}              % AMS 定理环境
 
 \RequirePackage{unicode-math}        % Unicode 数学字体支持
-% 设置数学字体为 Latin Modern Math
-% \setmathfont{latinmodern-math.otf}
-% 设置数学字体为 New Computer Modern Math（更现代的设计）
+
 \setmathfont{NewCMMath-Book.otf}
-% 设置数学字体为 STIX Two Math（科学出版物常用的字体，清晰且专业）
+% \setmathfont{NewCMMath-Regular.otf}
+
 % \setmathfont{STIXTwoMath-Regular.otf}
 % \setmathfont{texgyretermes-math.otf}
 
@@ -62,9 +61,6 @@
     \let\Re\undefined \DeclareMathOperator{\Re}{Re}
     \let\Im\undefined \DeclareMathOperator{\Im}{Im}
 }
-
-% \renewcommand{\Re}{\operatorname{\mathrm{Re}}}
-
 
 
 % 符号扩展
@@ -222,13 +218,11 @@
 % 每章最前的介绍内容环境 intro
 \newenvironment{intro}
 {\begin{quote}\kaishu\color{gray}}%
-        {\end{quote}\par\vspace*{2ex minus 1.5ex}}
+{\end{quote}\par\vspace*{2ex minus 1.5ex}}
 
 % ============================================================================
 % 14. 警告控制规范化
 % ============================================================================
-% 【修复】：不建议设为 10000pt（这会完全掩盖公式截断等严重错误）
-% 改为 2pt 或 5pt 即可忽略微小的不完美换行，但依然暴露需要修补的地方。
 \hfuzz=10000pt
 \vfuzz=10000pt
 \hbadness=10000
