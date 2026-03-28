@@ -31,7 +31,7 @@ common/
 
 1. **预配置选项** — 页面布局、目录深度
 2. **基础与工具宏包** — amsmath, unicode-math, siunitx, cleveref 等
-3. **数学字体设置** — XITS Math，自定义正体常数宏（`\ee`, `\uppi`, `\ii`, `\jj`, `\trans`, `\DD`）
+3. **数学字体设置** — XITS Math，自定义正体常数宏（`\e`, `\uppi`, `\ii`, `\jj`, `\trans`, `\DD`）
 4. **物理量单位** — siunitx 配置（`\cdot` 连接单位）
 5. **定理类环境** — `\NewPhysicsBox` 工厂宏，批量定义 8 种彩色盒子环境
 6. **交叉引用** — cleveref 中文引用名配置

@@ -152,7 +152,7 @@ $ \d y $ 与 $ \d x $ 之间的关系为
 此外，还有几个常用的 $ n $ 阶导数公式：
 \begin{physlist}{常用 $ n $ 阶导数公式}{common-nth-derivative-formulas}
     \begin{align}
-         & (1)\quad (\ee^{a x})^{(n)} = a^n \ee^{a x} ;                                  \\
+         & (1)\quad (\e^{a x})^{(n)} = a^n \e^{a x} ;                                    \\
          & (2)\quad (\sin a x)^{(n)} = a^n \sin \left( a x + \frac{n \uppi}{2} \right) ; \\
          & (3)\quad (\cos a x)^{(n)} = a^n \cos \left( a x + \frac{n \uppi}{2} \right) .
     \end{align}
@@ -321,8 +321,8 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
          & (1)\quad \int x^n \d x = \frac{x^{n+1}}{n+1} + C,\quad (n \neq -1) ; \\
          & (2)\quad \int \frac{1}{x} \d x = \ln |x| + C ;                       \\
          & (3)\quad \int a^x \d x = \frac{a^x}{\ln a} + C ;                     \\
-         & (4)\quad \int \ee^x \d x = \ee^x + C ;                               \\
-         & (5)\quad \int \log_a x \d x = x (\log_a x - \log_{\ee} a) + C ;      \\
+         & (4)\quad \int \e^x \d x = \e^x + C ;                                 \\
+         & (5)\quad \int \log_a x \d x = x (\log_a x - \log_{\e} a) + C ;       \\
          & (6)\quad \int \ln x \d x = x (\ln x - 1) + C ;                       \\
          & (7)\quad \int \sin x \d x = -\cos x + C ;                            \\
          & (8)\quad \int \cos x \d x = \sin x + C .
@@ -598,29 +598,29 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
           \end{equation*}
           它的通解为
           \begin{equation}
-              y_h = C \ee^{-\int P(x) \d x} \label{eq:first-order-linear-ordinary-differential-equation-general-solution},
+              y_h = C \e^{-\int P(x) \d x} \label{eq:first-order-linear-ordinary-differential-equation-general-solution},
           \end{equation}
           其中，$ C $ 为任意常数。
     \item 求该非齐次方程的一个特解 $ y_p $，可用如下方法求解，即设
           \begin{equation}
-              y_p = u(x) \ee^{-\int P(x) \d x} \label{eq:particular-solution-ansatz},
+              y_p = u(x) \e^{-\int P(x) \d x} \label{eq:particular-solution-ansatz},
           \end{equation}
           其中，$ u(x) $ 为待定函数。
           将 $ y_p $ 代入非齐次方程，得
           \begin{equation*}
-              \frac{\d u}{\d x} = Q(x) \ee^{\int P(x) \d x} .
+              \frac{\d u}{\d x} = Q(x) \e^{\int P(x) \d x} .
           \end{equation*}
           分离变量并积分，得
           \begin{equation*}
-              u(x) = \int Q(x) \ee^{\int P(x) \d x} \d x .
+              u(x) = \int Q(x) \e^{\int P(x) \d x} \d x .
           \end{equation*}
           因此，非齐次方程的一个特解为
           \begin{equation}
-              y_p = \ee^{-\int P(x) \d x} \int Q(x) \ee^{\int P(x) \d x} \d x .
+              y_p = \e^{-\int P(x) \d x} \int Q(x) \e^{\int P(x) \d x} \d x .
           \end{equation}
     \item 由此可得该非齐次微分方程的通解为
           \begin{equation}
-              y = y_h + y_p = C \ee^{-\int P(x) \d x} + \ee^{-\int P(x) \d x} \int Q(x) \ee^{\int P(x) \d x} \d x \label{eq:first-order-linear-ordinary-differential-equation-general-solution-nonhomogeneous}.
+              y = y_h + y_p = C \e^{-\int P(x) \d x} + \e^{-\int P(x) \d x} \int Q(x) \e^{\int P(x) \d x} \d x \label{eq:first-order-linear-ordinary-differential-equation-general-solution-nonhomogeneous}.
           \end{equation}
 \end{enumerate}
 
@@ -629,7 +629,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 可视为对齐次方程通解中的积分常数 $ C $ 进行函数化处理，即将 $ C $ 替换为待定函数 $ u(x) $ ，因此，这种方法称为「常数变易法」。
 
 此外，从通解 \cref{eq:first-order-linear-ordinary-differential-equation-general-solution-nonhomogeneous} 可以看出：
-非齐次微分方程的通解等于对应齐次微分方程的通解 $ C \ee^{-\int P(x) \d x} $ 与非齐次方程的一个特解 $ \ee^{-\int P(x) \d x} \int Q(x) \ee^{\int P(x) \d x} \d x $ 之和。
+非齐次微分方程的通解等于对应齐次微分方程的通解 $ C \e^{-\int P(x) \d x} $ 与非齐次方程的一个特解 $ \e^{-\int P(x) \d x} \int Q(x) \e^{\int P(x) \d x} \d x $ 之和。
 这件事情在更高阶的线性微分方程中也成立，这一性质称为「叠加原理」，我们之后会再提到它。
 \bigskip
 
@@ -819,7 +819,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 求解该类微分方程的方法如下：
 \begin{enumerate}
     \item 求解对应的齐次方程 \cref{eq:homogeneous-second-order-constant-coefficient-linear-ordinary-differential-equation}。
-          设齐次方程的解为 $ y = \ee^{\lambda x} $ 的形式，将其代入齐次方程，得特征方程
+          设齐次方程的解为 $ y = \e^{\lambda x} $ 的形式，将其代入齐次方程，得特征方程
           \begin{equation*}
               \lambda^2 + a \lambda + b = 0 .
           \end{equation*}
@@ -828,15 +828,15 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
           \begin{enumerate}
               \item 若 $ \lambda_1 \neq \lambda_2 $，则齐次方程的基本解组为
                     \begin{equation*}
-                        y_1 = \ee^{\lambda_1 x} , \quad y_2 = \ee^{\lambda_2 x} .
+                        y_1 = \e^{\lambda_1 x} , \quad y_2 = \e^{\lambda_2 x} .
                     \end{equation*}
               \item 若 $ \lambda_1 = \lambda_2 = \lambda $，则齐次方程的基本解组为
                     \begin{equation*}
-                        y_1 = \ee^{\lambda x} , \quad y_2 = x \ee^{\lambda x} .\text{（这是容易验证的）}
+                        y_1 = \e^{\lambda x} , \quad y_2 = x \e^{\lambda x} .\text{（这是容易验证的）}
                     \end{equation*}
               \item 若 $ \lambda_{1,2} = \alpha \pm \beta \ii $（其中，$ \ii = \sqrt{-1} $），则齐次方程的基本解组为
                     \begin{equation*}
-                        y_1 = \ee^{\alpha x} \cos (\beta x) , \quad y_2 = \ee^{\alpha x} \sin (\beta x) .
+                        y_1 = \e^{\alpha x} \cos (\beta x) , \quad y_2 = \e^{\alpha x} \sin (\beta x) .
                     \end{equation*}
           \end{enumerate}
           由此可得齐次方程的通解为
@@ -899,15 +899,15 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
     \end{equation*}
     它有 $ k $ 个互不相同的实根 $ \lambda_1 , \lambda_2 , \ldots , \lambda_k $，其中，第 $ i $ 个实根 $ \lambda_i $ 的重数为 $ m_i $（$ i = 1, 2, \ldots , k $），则该微分方程的基本解组为
     \begin{equation*}
-        \{ \ee^{\lambda_1 x} , x \ee^{\lambda_1 x} , \ldots , x^{m_1 - 1} \ee^{\lambda_1 x} , \ee^{\lambda_2 x} , x \ee^{\lambda_2 x} , \ldots , x^{m_2 - 1} \ee^{\lambda_2 x} , \ldots , \ee^{\lambda_k x} , x \ee^{\lambda_k x} , \ldots , x^{m_k - 1} \ee^{\lambda_k x} \} .
+        \{ \e^{\lambda_1 x} , x \e^{\lambda_1 x} , \ldots , x^{m_1 - 1} \e^{\lambda_1 x} , \e^{\lambda_2 x} , x \e^{\lambda_2 x} , \ldots , x^{m_2 - 1} \e^{\lambda_2 x} , \ldots , \e^{\lambda_k x} , x \e^{\lambda_k x} , \ldots , x^{m_k - 1} \e^{\lambda_k x} \} .
     \end{equation*}
     若 $ \lambda_{k+1} = \alpha + \beta \ii $ 与 $ \lambda_{k+2} = \alpha - \beta \ii $（$ \beta > 0 $）为一对共轭复根，且它们的重数均为 $ m $，则该微分方程的基本解组还应包括
     \begin{equation*}
-        \{ \ee^{\alpha x} \cos (\beta x) , x \ee^{\alpha x} \cos (\beta x) , \ldots , x^{m - 1} \ee^{\alpha x} \cos (\beta x) , \ee^{\alpha x} \sin (\beta x) , x \ee^{\alpha x} \sin (\beta x) , \ldots , x^{m - 1} \ee^{\alpha x} \sin (\beta x) \} .
+        \{ \e^{\alpha x} \cos (\beta x) , x \e^{\alpha x} \cos (\beta x) , \ldots , x^{m - 1} \e^{\alpha x} \cos (\beta x) , \e^{\alpha x} \sin (\beta x) , x \e^{\alpha x} \sin (\beta x) , \ldots , x^{m - 1} \e^{\alpha x} \sin (\beta x) \} .
     \end{equation*}
     则方程 \cref{eq:nth-order-constant-coefficient-homogeneous-linear-ordinary-differential-equation} 的通解为
     \begin{equation*}
-        y = C_1 \ee^{\lambda_1 x} + C_2 x \ee^{\lambda_1 x} + \ldots + C_{m_1} x^{m_1 - 1} \ee^{\lambda_1 x} + C_{m_1 + 1} \ee^{\lambda_2 x} + C_{m_1 + 2} x \ee^{\lambda_2 x} + \ldots + C_{m_1 + m_2} x^{m_2 - 1} \ee^{\lambda_2 x} + \ldots
+        y = C_1 \e^{\lambda_1 x} + C_2 x \e^{\lambda_1 x} + \ldots + C_{m_1} x^{m_1 - 1} \e^{\lambda_1 x} + C_{m_1 + 1} \e^{\lambda_2 x} + C_{m_1 + 2} x \e^{\lambda_2 x} + \ldots + C_{m_1 + m_2} x^{m_2 - 1} \e^{\lambda_2 x} + \ldots
     \end{equation*}
 \end{theorem}
 
@@ -940,19 +940,19 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
     P(\DD) y = f(x) .
 \end{equation}
 
-首先，我们研究 $ f(x) = \ee^{ax} $ 的情形，其中，$ a $ 为常数。
+首先，我们研究 $ f(x) = \e^{ax} $ 的情形，其中，$ a $ 为常数。
 
 若 $ P(a) \neq 0 $，则有如下定理：
 \begin{theorem}{指数代换法则}{exponential-substitution-rule}
     设 $ P(\DD) $ 为 $ n $ 阶常系数线性微分算子，$ a $ 为常数，且 $ P(a) \neq 0 $，则
     \begin{equation}
-        P(\DD) \ee^{ax} = P(a) \ee^{ax} .
+        P(\DD) \e^{ax} = P(a) \e^{ax} .
     \end{equation}
     \textbf{证明}：
 
     注意到 $ P(\DD) $ 是由 $ \DD $ 的多项式构成的，因此只需证明
     \begin{equation*}
-        \DD^n \ee^{ax} = a^n \ee^{ax} .
+        \DD^n \e^{ax} = a^n \e^{ax} .
     \end{equation*}
     这是显然的。
     \qed
@@ -962,24 +962,24 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \begin{theorem}{指数输入定理}{exponential-input-theorem}
     设 $ P(\DD) $ 为 $ n $ 阶常系数线性微分算子，$ a $ 为常数，且 $ P(a) \neq 0 $，则方程
     \begin{equation*}
-        P(\DD) y = \ee^{ax}
+        P(\DD) y = \e^{ax}
     \end{equation*}
     的一个特解为
     \begin{equation}
-        y_p = \frac{1}{P(a)} \ee^{ax} .
+        y_p = \frac{1}{P(a)} \e^{ax} .
     \end{equation}
     \textbf{证明}：
 
     由指数代换法则，有
     \begin{equation*}
-        P(\DD) y_p = P(\DD) \left( \frac{1}{P(a)} \ee^{ax} \right) = \frac{1}{P(a)} P(\DD) \ee^{ax} = \frac{1}{P(a)} P(a) \ee^{ax} = \ee^{ax} .
+        P(\DD) y_p = P(\DD) \left( \frac{1}{P(a)} \e^{ax} \right) = \frac{1}{P(a)} P(\DD) \e^{ax} = \frac{1}{P(a)} P(a) \e^{ax} = \e^{ax} .
     \end{equation*}
     \qed
 \end{theorem}
 
 注意到三角函数是可以用指数函数表示的，即欧拉（Euler）公式
 \begin{equation}
-    \ee^{\ii x} = \cos x + \ii \sin x ,
+    \e^{\ii x} = \cos x + \ii \sin x ,
 \end{equation}
 而这有什么用呢？由于复变函数的求导可以简单理解为分别对实部与虚部求导，于是就容易证明对于一个在复数域上的微分方程（但 $ P(x) \in \symbb{R}[x] $，就是 $ P (x) $ 为实系数多项式）
 \begin{equation}
@@ -994,7 +994,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
     P(\DD) y = \Im (f (x))
 \end{equation}
 的特解。所以对于 $ f (x) $ 为三角函数的情形完全可以转化为指数函数的情形来处理，最后根据要求保留实部或虚部即可。
-所以我们讨论的 $ \ee^{ax} $ 中的 $ a $ 可以是任意复数，即 $ a \in \symbb{C} $。
+所以我们讨论的 $ \e^{ax} $ 中的 $ a $ 可以是任意复数，即 $ a \in \symbb{C} $。
 
 到现在其实已经得到了一个挺不错的结果了，但这其实还不够。
 注意到指数输入 \cref{thm:exponential-input-theorem} 中有一个限制条件 $ P(a) \neq 0 $，因为分母显然不能为零。
@@ -1002,31 +1002,31 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \begin{theorem}{指数位移法则}{exponential-shift-rule}
     设 $ P(\DD) $ 为 $ n $ 阶常系数线性微分算子，$ a $ 为常数，$ u(x) $ 为可微函数，则
     \begin{equation}
-        P(\DD) \left( \ee^{ax} u(x) \right) = \ee^{ax} P(\DD + a) u(x) .
+        P(\DD) \left( \e^{ax} u(x) \right) = \e^{ax} P(\DD + a) u(x) .
     \end{equation}
     \textbf{证明}：
 
     注意到 $ P(\DD) $ 是由 $ \DD $ 的多项式构成的，因此只需证明
     \begin{equation*}
-        \DD^n \left( \ee^{ax} u(x) \right) = \ee^{ax} (\DD + a)^n u(x) .
+        \DD^n \left( \e^{ax} u(x) \right) = \e^{ax} (\DD + a)^n u(x) .
     \end{equation*}
     那么很明显可以运用数学归纳法
     \begin{enumerate}
         \item 当 $ n = 1 $ 时，显然成立：
               \begin{equation*}
-                  \DD \left( \ee^{ax} u(x) \right) = \ee^{ax} (\DD + a) u(x) .
+                  \DD \left( \e^{ax} u(x) \right) = \e^{ax} (\DD + a) u(x) .
               \end{equation*}
         \item 假设当 $ n = k $ 时成立，即
               \begin{equation*}
-                  \DD^k \left( \ee^{ax} u(x) \right) = \ee^{ax} (\DD + a)^k u(x) .
+                  \DD^k \left( \e^{ax} u(x) \right) = \e^{ax} (\DD + a)^k u(x) .
               \end{equation*}
               则当 $ n = k + 1 $ 时，有
               \begin{equation*}
                   \begin{aligned}
-                      \DD^{k+1} \left( \ee^{ax} u(x) \right) & = \DD \left( \DD^k \left( \ee^{ax} u(x) \right) \right) \\
-                                                             & = \DD \left( \ee^{ax} (\DD + a)^k u(x) \right)          \\
-                                                             & = \ee^{ax} (\DD + a) (\DD + a)^k u(x)                   \\
-                                                             & = \ee^{ax} (\DD + a)^{k+1} u(x) .
+                      \DD^{k+1} \left( \e^{ax} u(x) \right) & = \DD \left( \DD^k \left( \e^{ax} u(x) \right) \right) \\
+                                                            & = \DD \left( \e^{ax} (\DD + a)^k u(x) \right)          \\
+                                                            & = \e^{ax} (\DD + a) (\DD + a)^k u(x)                   \\
+                                                            & = \e^{ax} (\DD + a)^{k+1} u(x) .
                   \end{aligned}
               \end{equation*}
     \end{enumerate}
@@ -1042,7 +1042,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \begin{theorem}{单根指数输入定理}{simple-root-exponential-input-theorem}
     若 $ a $ 为 $ P(x) = 0 $ 的单根，则有：
     \begin{equation}
-        y_p = \frac{x \ee^{ax} }{P'(a)} .
+        y_p = \frac{x \e^{ax} }{P'(a)} .
     \end{equation}
     \textbf{证明}：
 
@@ -1057,10 +1057,10 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
     故有 $ P'(a) = a - b $, 于是将 $ y_p $ 代入方程可得：
     \begin{equation*}
         \begin{aligned}
-            P(\DD) y_p & = \frac{\ee^{ax} P(\DD + a) x }{P'(a)} \quad \text{（由指数位移法则）} \\
-                       & = \frac{\ee^{ax} (\DD + a - b)\DD x }{a - b}                  \\
-                       & = \frac{\ee^{ax} (a - b) }{a - b}                             \\
-                       & = \ee^{ax} .
+            P(\DD) y_p & = \frac{\e^{ax} P(\DD + a) x }{P'(a)} \quad \text{（由指数位移法则）} \\
+                       & = \frac{\e^{ax} (\DD + a - b)\DD x }{a - b}                  \\
+                       & = \frac{\e^{ax} (a - b) }{a - b}                             \\
+                       & = \e^{ax} .
         \end{aligned}
     \end{equation*}
     \qed
@@ -1070,7 +1070,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \begin{theorem}{二重根指数输入定理}{double-root-exponential-input-theorem}
     若 $ a $ 为 $ P(x) = 0 $ 的二重根，则有：
     \begin{equation}
-        y_p = \frac{x^2 \ee^{ax} }{P''(a)} .
+        y_p = \frac{x^2 \e^{ax} }{P''(a)} .
     \end{equation}
     证明类似单根情形，此处略去。
 \end{theorem}
@@ -1079,7 +1079,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \begin{theorem}{$ n $ 重根指数输入定理}{n-th-root-exponential-input-theorem}
     若 $ a \in \symbb{C} $ 为 $ P(x) = 0 $ 的 $ n $ 重根，则有：
     \begin{equation}
-        y_p = \frac{x^n \ee^{ax} }{P^{(n)}(a)} .
+        y_p = \frac{x^n \e^{ax} }{P^{(n)}(a)} .
     \end{equation}
 
     \textbf{证明}：
@@ -1097,10 +1097,10 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
     于是，将 $ y_p $ 代入方程可得：
     \begin{equation*}
         \begin{aligned}
-            P(\DD) y_p & = \frac{\ee^{ax} P(\DD + a) x^n }{P^{(n)}(a)} \quad \text{（由指数位移法则）} \\
-                       & = \frac{\ee^{ax} \tilde{P}(\DD + a) (\DD)^n x^n }{P^{(n)}(a)}        \\
-                       & = \frac{\ee^{ax} \tilde{P}(a) n! }{n! \tilde{P}(a)}                  \\
-                       & = \ee^{ax} .
+            P(\DD) y_p & = \frac{\e^{ax} P(\DD + a) x^n }{P^{(n)}(a)} \quad \text{（由指数位移法则）} \\
+                       & = \frac{\e^{ax} \tilde{P}(\DD + a) (\DD)^n x^n }{P^{(n)}(a)}        \\
+                       & = \frac{\e^{ax} \tilde{P}(a) n! }{n! \tilde{P}(a)}                  \\
+                       & = \e^{ax} .
         \end{aligned}
     \end{equation*}
     \qed
@@ -1223,16 +1223,16 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \begin{theorem}{指数-多项式输入定理}{exponential-polynomial-input-theorem}
     设 $ a \in \symbb{C} $，$ f(x) $ 为有限次多项式函数，则方程
     \begin{equation*}
-        P(\DD) y = \ee^{ax} f(x)
+        P(\DD) y = \e^{ax} f(x)
     \end{equation*}
     的一个特解为：
     \begin{equation}
-        y_p = \ee^{ax} \frac{1}{P(\DD + a)} f(x) .
+        y_p = \e^{ax} \frac{1}{P(\DD + a)} f(x) .
     \end{equation}
 \end{theorem}
 
 当然到了这一步，这个公式已经趋近于完美了，只有一个小问题，就是 $ \frac{1}{P(\DD + a)} $ 的常数项可能为零。
-但这不足为虑，因为位移法则其实在表明这样的一个事实：只要把 $ P(\DD + a) y = f(x) $ 的特解乘上 $ \ee^{ax} $ 就是原方程的特解。
+但这不足为虑，因为位移法则其实在表明这样的一个事实：只要把 $ P(\DD + a) y = f(x) $ 的特解乘上 $ \e^{ax} $ 就是原方程的特解。
 所以就回到了一开始讨论的问题，可以先把 $ \DD^k $ 提取出来，最后在一步步积分即可。
 
 为了让结论「更正确」，我们对 $ \frac{1}{P(\DD)} $ 做如下补充定义：
@@ -1262,15 +1262,15 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
     \textbf{解}：
     复化：
     \begin{equation*}
-        (\DD^2 + 4) \tilde{y} = x \ee^{\ii x} .
+        (\DD^2 + 4) \tilde{y} = x \e^{\ii x} .
     \end{equation*}
     故：
     \begin{equation*}
         \begin{aligned}
-            \tilde{y} = & \frac{1}{\DD^2 + 4} x \ee^{\ii x}                                                              \\
-            =           & \ee^{\ii x} \frac{1}{(\DD + \ii)^2 + 4} x \quad \text{（由指数-多项式输入定理）}                           \\
-            =           & \ee^{\ii x} \frac{1}{\DD^2 + 2\ii \DD + 3} x                                                   \\
-            =           & \ee^{\ii x} \left( \frac{1}{3} - \frac{2\ii}{9} \DD + \ldots \right) x \quad \text{（由多项式输入定理）} \\
+            \tilde{y} = & \frac{1}{\DD^2 + 4} x \e^{\ii x}                                                              \\
+            =           & \e^{\ii x} \frac{1}{(\DD + \ii)^2 + 4} x \quad \text{（由指数-多项式输入定理）}                           \\
+            =           & \e^{\ii x} \frac{1}{\DD^2 + 2\ii \DD + 3} x                                                   \\
+            =           & \e^{\ii x} \left( \frac{1}{3} - \frac{2\ii}{9} \DD + \ldots \right) x \quad \text{（由多项式输入定理）} \\
             =           & (\cos x + \ii \sin x) \left( \frac{x}{3} - \frac{2\ii}{9} \right) .
         \end{aligned}
     \end{equation*}
@@ -1283,29 +1283,29 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 
     如下为升幂长除法的计算示例：
     {
-    \newcommand{\longdiv}{
-        \smash{\mkern-0.43mu\vstretch{1.34}
-            {\hstretch{0.9}{)}}\mkern-5.95mu\vstretch{1.34}{\hstretch{0.85}{)}}}
-    }
+        \newcommand{\longdiv}{
+            \smash{\mkern-0.43mu\vstretch{1.34}
+                {\hstretch{0.9}{)}}\mkern-5.95mu\vstretch{1.34}{\hstretch{0.85}{)}}}
+        }
 
-    \begin{equation*}
-        \begin{tblr}{%
-                hline{2}={3-10}{black,0.4pt,solid},
-                hline{4}={3-8}{black,0.4pt,solid},
-                hline{6}={4-10}{black,0.4pt,solid},
-                rows = {rowsep = 2pt},
-                row{1} = {belowsep = 3pt},
-                row{2} = {abovesep = 4pt},
-                columns = {colsep = 1pt},
-            }
-                             &          &   &   &   &                    &   & \dfrac{1}{3}     & - & \dfrac{2}{9}\ii D    &  &  &   &     \\
-            3 + 2\ii D + D^2 & \longdiv &   & 1 &   &                    &   &                  &   &                      &  &  &   &   & \\
-                             &          & - & 1 & - & \dfrac{2}{3} \ii D & - & \dfrac{1}{3} D^2 &   &                      &  &  &   &     \\
-                             &          &   &   & - & \dfrac{2}{3} \ii D & - & \dfrac{1}{3} D^2 &   &                      &  &  &   &     \\
-                             &          &   &   &   & \dfrac{2}{3} \ii D & - & \dfrac{4}{9} D^2 & + & \dfrac{2}{9} \ii D^3 &  &  &         \\
-                             &          &   &   &   &                    & - & \dfrac{7}{9} D^2 & + & \dfrac{2}{9} \ii D^3 &  &  &         \\
-        \end{tblr}
-    \end{equation*}
+        \begin{equation*}
+            \begin{tblr}{%
+                    hline{2}={3-10}{black,0.4pt,solid},
+                    hline{4}={3-8}{black,0.4pt,solid},
+                    hline{6}={4-10}{black,0.4pt,solid},
+                    rows = {rowsep = 2pt},
+                    row{1} = {belowsep = 3pt},
+                    row{2} = {abovesep = 4pt},
+                    columns = {colsep = 1pt},
+                }
+                                 &          &   &   &   &                    &   & \dfrac{1}{3}     & - & \dfrac{2}{9}\ii D    &  &  &   &     \\
+                3 + 2\ii D + D^2 & \longdiv &   & 1 &   &                    &   &                  &   &                      &  &  &   &   & \\
+                                 &          & - & 1 & - & \dfrac{2}{3} \ii D & - & \dfrac{1}{3} D^2 &   &                      &  &  &   &     \\
+                                 &          &   &   & - & \dfrac{2}{3} \ii D & - & \dfrac{1}{3} D^2 &   &                      &  &  &   &     \\
+                                 &          &   &   &   & \dfrac{2}{3} \ii D & - & \dfrac{4}{9} D^2 & + & \dfrac{2}{9} \ii D^3 &  &  &         \\
+                                 &          &   &   &   &                    & - & \dfrac{7}{9} D^2 & + & \dfrac{2}{9} \ii D^3 &  &  &         \\
+            \end{tblr}
+        \end{equation*}
     }
 \end{example}
 
@@ -2083,20 +2083,20 @@ $ \symbfit{e}_x $，$ \symbfit{e}_y $，$ \symbfit{e}_z $ 分别为 $ x $ 轴、
 
 欧拉公式是复数的一个重要公式，内容为
 \begin{equation}
-    \ee^{\ii \theta} = \cos \theta + \ii \sin \theta .
+    \e^{\ii \theta} = \cos \theta + \ii \sin \theta .
 \end{equation}
 利用欧拉公式，可以将复数 $ z = r (\cos \theta + \ii \sin \theta) $ 表示成指数形式，即
 \begin{equation}
-    z = r \ee^{\ii \theta} .
+    z = r \e^{\ii \theta} .
 \end{equation}
 复数的乘法与除法在指数形式下也有着简单的表示：
 \begin{equation}
-    z_1 z_2 = r_1 r_2 \ee^{\ii (\theta_1 + \theta_2)} ,
+    z_1 z_2 = r_1 r_2 \e^{\ii (\theta_1 + \theta_2)} ,
 \end{equation}
 \begin{equation}
-    \frac{z_1}{z_2} = \frac{r_1}{r_2} \ee^{\ii (\theta_1 - \theta_2)} ,
+    \frac{z_1}{z_2} = \frac{r_1}{r_2} \e^{\ii (\theta_1 - \theta_2)} ,
 \end{equation}
-其中，复数 $ z_1 = r_1 \ee^{\ii \theta_1} $ 与复数 $ z_2 = r_2 \ee^{\ii\theta_2} $。
+其中，复数 $ z_1 = r_1 \e^{\ii \theta_1} $ 与复数 $ z_2 = r_2 \e^{\ii\theta_2} $。
 
 
 
@@ -2162,15 +2162,15 @@ $ \symbfit{e}_x $，$ \symbfit{e}_y $，$ \symbfit{e}_z $ 分别为 $ x $ 轴、
 三角函数的求和公式可以用复数法证明：
 \begin{equation}
     \sum_{k=0}^{n} \sin (k \theta)
-    = \Im \left( \sum_{k=0}^{n} \ee^{\ii k \theta} \right) = \Im \left( \frac{1 - \ee^{\ii (n+1) \theta}}{1 - \ee^{\ii \theta}} \right)
-    = \Im \left( \frac{\ee^{\ii \frac{(n+1) \theta}{2}} \left( \ee^{-\ii \frac{(n+1) \theta}{2}} - \ee^{\ii \frac{(n+1) \theta}{2}} \right)}{\ee^{\ii \frac{\theta}{2}} \left( \ee^{-\ii \frac{\theta}{2}} - \ee^{\ii \frac{\theta}{2}} \right)}\right)
+    = \Im \left( \sum_{k=0}^{n} \e^{\ii k \theta} \right) = \Im \left( \frac{1 - \e^{\ii (n+1) \theta}}{1 - \e^{\ii \theta}} \right)
+    = \Im \left( \frac{\e^{\ii \frac{(n+1) \theta}{2}} \left( \e^{-\ii \frac{(n+1) \theta}{2}} - \e^{\ii \frac{(n+1) \theta}{2}} \right)}{\e^{\ii \frac{\theta}{2}} \left( \e^{-\ii \frac{\theta}{2}} - \e^{\ii \frac{\theta}{2}} \right)}\right)
     = \frac{\sin \frac{(n+1) \theta}{2} \sin \frac{n \theta}{2}}{\sin \frac{\theta}{2}} ,
 \end{equation}
 
 \begin{equation}
     \sum_{k=0}^{n} \cos (k \theta)
-    = \Re \left( \sum_{k=0}^{n} \ee^{\ii k \theta} \right) = \Re \left( \frac{1 - \ee^{\ii (n+1) \theta}}{1 - \ee^{\ii \theta}} \right)
-    = \Re \left( \frac{\ee^{\ii \frac{(n+1) \theta}{2}} \left( \ee^{-\ii \frac{(n+1) \theta}{2}} - \ee^{\ii \frac{(n+1) \theta}{2}} \right)}{\ee^{\ii \frac{\theta}{2}} \left( \ee^{-\ii \frac{\theta}{2}} - \ee^{\ii \frac{\theta}{2}} \right)}\right)
+    = \Re \left( \sum_{k=0}^{n} \e^{\ii k \theta} \right) = \Re \left( \frac{1 - \e^{\ii (n+1) \theta}}{1 - \e^{\ii \theta}} \right)
+    = \Re \left( \frac{\e^{\ii \frac{(n+1) \theta}{2}} \left( \e^{-\ii \frac{(n+1) \theta}{2}} - \e^{\ii \frac{(n+1) \theta}{2}} \right)}{\e^{\ii \frac{\theta}{2}} \left( \e^{-\ii \frac{\theta}{2}} - \e^{\ii \frac{\theta}{2}} \right)}\right)
     = \frac{\sin \frac{(n+1) \theta}{2} \cos \frac{n \theta}{2}}{\sin \frac{\theta}{2}} .
 \end{equation}
 
@@ -2180,15 +2180,15 @@ $ \symbfit{e}_x $，$ \symbfit{e}_y $，$ \symbfit{e}_z $ 分别为 $ x $ 轴、
 \begin{definition}{双曲函数}{definition-of-hyperbolic-functions}
     双曲正弦函数与双曲余弦函数分别定义为
     \begin{equation}
-        \sinh x = \frac{\ee^x - \ee^{-x}}{2} ,
+        \sinh x = \frac{\e^x - \e^{-x}}{2} ,
     \end{equation}
     \begin{equation}
-        \cosh x = \frac{\ee^x + \ee^{-x}}{2} .
+        \cosh x = \frac{\e^x + \e^{-x}}{2} .
     \end{equation}
 
     此外，还有双曲正切函数，定义为
     \begin{equation}
-        \tanh x = \frac{\sinh x}{\cosh x} = \frac{\ee^x - \ee^{-x}}{\ee^x + \ee^{-x}} .
+        \tanh x = \frac{\sinh x}{\cosh x} = \frac{\e^x - \e^{-x}}{\e^x + \e^{-x}} .
     \end{equation}
 
 \end{definition}
@@ -2241,7 +2241,7 @@ $ \symbfit{e}_x $，$ \symbfit{e}_y $，$ \symbfit{e}_z $ 分别为 $ x $ 轴、
 
     再考虑由欧拉公式得到三角函数的表达式
     \begin{equation}
-        \sin \theta = \frac{\ee^{\ii \theta} - \ee^{-\ii \theta}}{2 \ii} , \quad \cos \theta = \frac{\ee^{\ii \theta} + \ee^{-\ii \theta}}{2} .
+        \sin \theta = \frac{\e^{\ii \theta} - \e^{-\ii \theta}}{2 \ii} , \quad \cos \theta = \frac{\e^{\ii \theta} + \e^{-\ii \theta}}{2} .
     \end{equation}
     将其中的虚数单位 $ \ii $ 替换为实数单位 $ 1 $，即可得到双曲函数的表达式。
 
