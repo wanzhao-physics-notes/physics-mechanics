@@ -1412,7 +1412,7 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 物理学中有些标量是空间位置 $ \symbfit{r} $ 的函数，例如非均匀物质场中的密度分布 $ \rho (\symbfit{r}) $，电势分布 $ V (\symbfit{r}) $ 等。
 这类标量与位置之间的函数可一般地记作
 \begin{equation}
-    \phi (\symbfit{r})\, \text{或}\, \phi (x, y, z) .
+    \varphi (\symbfit{r})\, \text{或}\, \varphi (x, y, z) .
 \end{equation}
 它是一个由空间中的三个独立坐标 $ x , y , z $ 决定的三元函数。
 
@@ -1435,18 +1435,18 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \subinputfrom{../figures/00_math-basics/}{fig_curve-element.tex}
 
 将 \cref{fig:curve-element} 中 $ a $ 到 $ b $ 的曲线段 $ L $ 上的任意一段曲线元记为 $ \d l $ ，并忽略曲线元上各点的位置变化，
-则曲线元上各点的函数值可视为常数，记为 $ \phi (\symbfit{r}) $ 或 $ \phi (x, y, z) $。
-将该位置处的函数值与曲线元长度的乘积 $ \phi (x, y, z) \d l $，从曲线段 $ L $ 的起点 $ a $ 积分到终点 $ b $，即得到沿曲线段 $ L $ 的线积分：
+则曲线元上各点的函数值可视为常数，记为 $ \varphi (\symbfit{r}) $ 或 $ \varphi (x, y, z) $。
+将该位置处的函数值与曲线元长度的乘积 $ \varphi (x, y, z) \d l $，从曲线段 $ L $ 的起点 $ a $ 积分到终点 $ b $，即得到沿曲线段 $ L $ 的线积分：
 \begin{definition}{线积分的定义}{definition-of-line-integral}
     \begin{equation}
-        \int_L \phi (x, y, z) \d l = \lim_{\max \Delta l_i \to 0} \sum_{i} \phi (\xi_i) \Delta l_i ,
+        \int_L \varphi (x, y, z) \d l = \lim_{\max \Delta l_i \to 0} \sum_{i} \varphi (\xi_i) \Delta l_i ,
     \end{equation}
     其中，曲线段 $ L $ 被划分为若干小曲线元 $ \Delta l_i $，$ \xi_i $ 为 $ \Delta l_i $ 上的某点，$ \max \Delta l_i $ 表示所有小曲线元的最大值。
 \end{definition}
-若取 $ \phi (x, y, z) = 1 $，则线积分即为曲线段 $ L $ 的长度。
+若取 $ \varphi (x, y, z) = 1 $，则线积分即为曲线段 $ L $ 的长度。
 如果 $ L $ 为闭合曲线，则称该线积分为闭合线积分，记为
 \begin{equation}
-    \oint_L \phi (x, y, z) \d l .
+    \oint_L \varphi (x, y, z) \d l .
 \end{equation}
 
 \bigskip
@@ -1477,18 +1477,18 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
     \d \symbfit{S} = \d S \symbfit{n}
 \end{equation*}
 为面元矢量。
-若面元处有函数值 $ \phi (x, y, z) $，则将该位置处的函数值与面元面积的乘积 $ \phi (x, y, z) \d S $，从曲面 $ S $ 的各个面元上积分，即得到曲面 $ S $ 上的面积分：
+若面元处有函数值 $ \varphi (x, y, z) $，则将该位置处的函数值与面元面积的乘积 $ \varphi (x, y, z) \d S $，从曲面 $ S $ 的各个面元上积分，即得到曲面 $ S $ 上的面积分：
 \begin{definition}{面积分的定义}{definition-of-surface-integral}
     \begin{equation}
-        \iint_S \phi (x, y, z) \d S = \lim_{\max \Delta S_i \to 0} \sum_{i} \phi (\xi_i) \Delta S_i ,
+        \iint_S \varphi (x, y, z) \d S = \lim_{\max \Delta S_i \to 0} \sum_{i} \varphi (\xi_i) \Delta S_i ,
     \end{equation}
     其中，曲面 $ S $ 被划分为若干小面元 $ \Delta S_i $，$ \xi_i $ 为 $ \Delta S_i $ 上的某点，$ \max \Delta S_i $ 表示所有小面元的最大面积。
 \end{definition}
 
-若取 $ \phi (x, y, z) = 1 $，则面积分即为曲面 $ S $ 的面积。
+若取 $ \varphi (x, y, z) = 1 $，则面积分即为曲面 $ S $ 的面积。
 如果 $ S $ 为闭合曲面，则称该面积分为闭合面积分，记为
 \begin{equation}
-    \oiint_S \phi (x, y, z) \d S .
+    \oiint_S \varphi (x, y, z) \d S .
 \end{equation}
 
 \bigskip
@@ -1509,15 +1509,15 @@ $ x_0 = 0 $ 时，称为麦克劳林（MacLaurin）级数，即
 \bigskip
 
 将某空间区域 $ V $ 分割成一系列无穷小的小体积，称为体元，体积一般地记为 $ \d V $。
-在体元处有函数值 $ \phi (x, y, z) $，则将该位置处的函数值与体元体积的乘积 $ \phi (x, y, z) \d V $，从空间区域 $ V $ 的各个体元上积分，即得到空间区域 $ V $ 上的体积分：
+在体元处有函数值 $ \varphi (x, y, z) $，则将该位置处的函数值与体元体积的乘积 $ \varphi (x, y, z) \d V $，从空间区域 $ V $ 的各个体元上积分，即得到空间区域 $ V $ 上的体积分：
 \begin{definition}{体积分的定义}{definition-of-volume-integral}
     \begin{equation}
-        \iiint_V \phi (x, y, z) \d V = \lim_{\max \Delta V_i \to 0} \sum_{i} \phi (\xi_i) \Delta V_i ,
+        \iiint_V \varphi (x, y, z) \d V = \lim_{\max \Delta V_i \to 0} \sum_{i} \varphi (\xi_i) \Delta V_i ,
     \end{equation}
     其中，空间区域 $ V $ 被划分为若干小体元 $ \Delta V_i $，$ \xi_i $ 为 $ \Delta V_i $ 上的某点，$ \max \Delta V_i $ 表示所有小体元的最大体积。
 \end{definition}
 
-若取 $ \phi (x, y, z) = 1 $，则体积分即为空间区域 $ V $ 的体积。
+若取 $ \varphi (x, y, z) = 1 $，则体积分即为空间区域 $ V $ 的体积。
 
 关于线积分、面积分与体积分的完整讨论与各种算例，可以参考相关数学教材或者笔者后续的电磁学笔记。
 在普物力学的范围内，就只介绍到这里了。
@@ -1918,9 +1918,9 @@ $ \symbfit{e}_x $，$ \symbfit{e}_y $，$ \symbfit{e}_z $ 分别为 $ x $ 轴、
 \begin{definition}{矢量的混合积}{definition-of-scalar-triple-product-of-vectors}
     设有三个三维矢量 $ \symbfit{A} $，$ \symbfit{B} $ 与 $ \symbfit{C} $，它们的混合积记为 $ \symbfit{A} \cdot (\symbfit{B} \times \symbfit{C}) $，定义为
     \begin{equation}
-        \symbfit{A} \cdot (\symbfit{B} \times \symbfit{C}) = ABC \sin \theta \cos \phi ,
+        \symbfit{A} \cdot (\symbfit{B} \times \symbfit{C}) = ABC \sin \theta \cos \varphi ,
     \end{equation}
-    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \symbfit{A} $，$ \symbfit{B} $ 与 $ \symbfit{C} $ 的模，$ \theta $ 为矢量 $ \symbfit{B} $ 与矢量 $ \symbfit{C} $ 之间的夹角，$ \phi $ 为矢量 $ \symbfit{A} $ 与矢量 $ \symbfit{B} \times \symbfit{C} $ 之间的夹角。
+    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \symbfit{A} $，$ \symbfit{B} $ 与 $ \symbfit{C} $ 的模，$ \theta $ 为矢量 $ \symbfit{B} $ 与矢量 $ \symbfit{C} $ 之间的夹角，$ \varphi $ 为矢量 $ \symbfit{A} $ 与矢量 $ \symbfit{B} \times \symbfit{C} $ 之间的夹角。
 \end{definition}
 混合积是一个标量，并且满足循环对称性与反对称性，即
 \begin{equation}
@@ -1942,9 +1942,9 @@ $ \symbfit{e}_x $，$ \symbfit{e}_y $，$ \symbfit{e}_z $ 分别为 $ x $ 轴、
 \begin{definition}{矢量的三重叉积}{definition-of-vector-triple-product-of-vectors}
     设有三个三维矢量 $ \symbfit{A} $，$ \symbfit{B} $ 与 $ \symbfit{C} $，它们的三重叉积记为 $ \symbfit{A} \times (\symbfit{B} \times \symbfit{C}) $，定义为一个新矢量，其方向与矢量 $ \symbfit{B} $ 与矢量 $ \symbfit{C} $ 所在平面内的某个方向相同，其模为
     \begin{equation}
-        |\symbfit{A} \times (\symbfit{B} \times \symbfit{C})| = AB C \sin \theta \sin \phi ,
+        |\symbfit{A} \times (\symbfit{B} \times \symbfit{C})| = AB C \sin \theta \sin \varphi ,
     \end{equation}
-    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \symbfit{A} $，$ \symbfit{B} $ 与 $ \symbfit{C} $ 的模，$ \theta $ 为矢量 $ \symbfit{B} $ 与矢量 $ \symbfit{C} $ 之间的夹角，$ \phi $ 为矢量 $ \symbfit{A} $ 与矢量 $ \symbfit{B} \times \symbfit{C} $ 之间的夹角，并且此处的 $ \phi $ 和 $ \theta $ 的范围均为 $ [0 , \uppi] $。
+    其中，$ A $，$ B $ 与 $ C $ 分别为矢量 $ \symbfit{A} $，$ \symbfit{B} $ 与 $ \symbfit{C} $ 的模，$ \theta $ 为矢量 $ \symbfit{B} $ 与矢量 $ \symbfit{C} $ 之间的夹角，$ \varphi $ 为矢量 $ \symbfit{A} $ 与矢量 $ \symbfit{B} \times \symbfit{C} $ 之间的夹角，并且此处的 $ \varphi $ 和 $ \theta $ 的范围均为 $ [0 , \uppi] $。
 \end{definition}
 三重叉积是一个矢量，并且满足如下恒等式：
 \begin{equation}

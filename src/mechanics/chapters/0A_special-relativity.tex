@@ -22,15 +22,15 @@
 库仑（Coulomb）在 1785 年提出了电荷之间的相互作用力遵循平方反比定律，半个世纪后，麦克斯韦（Maxwell）在 1865 年成功地将电学和磁学统一成了电磁学，建立了麦克斯韦方程组，预言了电磁波的存在。
 他发现空间电磁场可以以波的形式传播，当时假想的传播介质被称为「以太」，麦克斯韦方程组预言了电磁波在真空中的传播速度是一个常数，约为 \qty{3e8}{\metre\per\second}，这个速度被认为是以太中的光速。
 \begin{equation}
-    \left(\nabla^2 - \mu \epsilon \frac{\partial^2}{\partial t^2}\right) \symbfit{E} = 0
+    \left(\nabla^2 - \mu \varepsilon \frac{\partial^2}{\partial t^2}\right) \symbfit{E} = 0
 \end{equation}
 \begin{equation}
-    \left(\nabla^2 - \mu \epsilon \frac{\partial^2}{\partial t^2}\right) \symbfit{B} = 0
+    \left(\nabla^2 - \mu \varepsilon \frac{\partial^2}{\partial t^2}\right) \symbfit{B} = 0
 \end{equation}
-其中，$ \mu $ 和 $ \epsilon $ 分别是真空的磁导率和电容率，$ \symbfit{E} $ 和 $ \symbfit{B} $ 分别是电场和磁场。
+其中，$ \mu $ 和 $ \varepsilon $ 分别是真空的磁导率和电容率，$ \symbfit{E} $ 和 $ \symbfit{B} $ 分别是电场和磁场。
 根据麦克斯韦方程组，电磁波的传播速度 $ c $ 满足
 \begin{equation}
-    c = \frac{1}{\sqrt{\mu \epsilon}} \approx \qty{3e8}{\metre\per\second}
+    c = \frac{1}{\sqrt{\mu \varepsilon}} \approx \qty{3e8}{\metre\per\second}
 \end{equation}
 与参考系无关（？）这个结果与经典力学的预期相矛盾（在经典力学中，速度是相对的）。
 
@@ -471,13 +471,13 @@
     在这里，你可能会发现这个速度变换公式与 $\tan x$ 的加法公式非常相似，这并非巧合。
     实际上，狭义相对论中的速度变换可以类比为双曲正切函数的加法公式，这揭示了狭义相对论中速度空间的几何结构。
 
-    具体来说，设 $u = c \cdot \tanh \phi$ 和 $v = c \cdot \tanh \psi$，则速度变换公式可以写成
+    具体来说，设 $u = c \cdot \tanh \varphi$ 和 $v = c \cdot \tanh \psi$，则速度变换公式可以写成
     \begin{equation}
-        \tanh(\phi + \psi) = \frac{\tanh \phi + \tanh \psi}{1 + \tanh \phi \tanh \psi}
+        \tanh(\varphi + \psi) = \frac{\tanh \varphi + \tanh \psi}{1 + \tanh \varphi \tanh \psi}
     \end{equation}
 
     这表明，狭义相对论中的速度变换实际上对应于双曲角的加法，这进一步强调了狭义相对论中时空的双曲几何性质。
-    而此处的 $\phi$ 和 $\psi$ 被称为快度角（boost angle）或快度参数（rapidity）。
+    而此处的 $\varphi$ 和 $\psi$ 被称为快度角（boost angle）或快度参数（rapidity）。
 \end{note}
 
 下面给出一个例子，即加速度变换公式的推导。
@@ -1116,7 +1116,7 @@
 \end{equation}
 
 
-若令 $\beta = \tanh \phi$，则 $\gamma = \cosh \phi$，$\gamma \beta = \sinh \phi$，上式可以写成
+若令 $\beta = \tanh \varphi$，则 $\gamma = \cosh \varphi$，$\gamma \beta = \sinh \varphi$，上式可以写成
 \begin{equation}
     \begin{pmatrix}
         ct' \\
@@ -1124,10 +1124,10 @@
         y'  \\
         z'
     \end{pmatrix} = \begin{pmatrix}
-        \cosh \phi  & -\sinh \phi & 0 & 0 \\
-        -\sinh \phi & \cosh \phi  & 0 & 0 \\
-        0           & 0           & 1 & 0 \\
-        0           & 0           & 0 & 1
+        \cosh \varphi  & -\sinh \varphi & 0 & 0 \\
+        -\sinh \varphi & \cosh \varphi  & 0 & 0 \\
+        0              & 0              & 1 & 0 \\
+        0              & 0              & 0 & 1
     \end{pmatrix} \begin{pmatrix}
         ct \\
         x  \\
