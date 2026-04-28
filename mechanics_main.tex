@@ -4,26 +4,27 @@
 
 \addbibresource{references.bib}
 
+\title{一份（不太）简短的力学笔记}
+\author{李清臣}
+\date{\today}
+
 \begin{document}
 
-\pagenumbering{Alph}
 \subinputfrom{chapters/}{titlepage.tex}
 
-\frontmatter
+\frontmatter{}
 \subincludefrom{chapters/}{99_preface-contrib.tex}
 \subincludefrom{chapters/}{99_preface-overview.tex}
 
 \tableofcontents
 
-\mainmatter
-
+\mainmatter{}
 \setcounter{chapter}{-1}
-
 \subincludefrom{chapters/}{00_math-basics.tex}
-\subincludefrom{chapters/}{01_electrostatics.tex}
+\subincludefrom{chapters/}{01_particle-kinematics.tex}
+\subincludefrom{chapters/}{0A_special-relativity.tex}
 
-\backmatter
-
+\backmatter{}
 \printbibliography[heading=bibintoc, title={参考文献}]
 
 \end{document}
